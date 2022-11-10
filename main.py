@@ -596,4 +596,265 @@
 # s2.set_name_notebook()
 
 
+# class Point3D:
+#     CH = 'Координата должна быть числом'
+#     RIGHT = 'Правый операнд должен быть типом Point3D'
+#
+#     def __init__(self, x=0, y=0, z=0):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#     def __str__(self):
+#         return f'{self.__x}, {self.__y}, {self.__z}'
+#
+#     @staticmethod
+#     def __check_value(v):
+#         return isinstance(v, int | float)
+#
+#     @property
+#     def x(self):
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, value):
+#         if self.__check_value(value):
+#             self.__x = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def y(self):
+#         return self.__y
+#
+#     @y.setter
+#     def y(self, value):
+#         if self.__check_value(value):
+#             self.__y = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def z(self):
+#         return self.__z
+#
+#     @z.setter
+#     def z(self, value):
+#         if self.__check_value(value):
+#             self.__z = value
+#         else:
+#             print(self.CH)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x + other.x, self.__y + other.y, self.__z + other.z)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x - other.x, self.__y - other.y, self.__z - other.z)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x * other.x, self.__y * other.y, self.__z * other.z)
+#
+#     @staticmethod
+#     def __check0(v):
+#         if v.x == 0 or v.y == 0 or v.z == 0:
+#             raise ZeroDivisionError('Ни одна из координат не должна быть нулем')
+#
+#     def __truediv__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         self.__check0(other)
+#         return Point3D(self.__x / other.x, self.__y / other.y, self.__z / other.z)
+#
+#     def __eq__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         return self.__x == other.x and self.__y == other.y and self.__z == other.z
+#
+#     def __getitem__(self, item):
+#         if not isinstance(item, str):
+#             raise ValueError('Ключ должен быть строкой')
+#         elif item == 'x':
+#             return self.__x
+#         elif item == 'y':
+#             return self.__y
+#         elif item == 'z':
+#             return self.__z
+#         else:
+#             print('Неверно задан ключ')
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, str):
+#             raise ValueError('Ключ должен быть строкой')
+#         if self.__check_value(value):
+#             if key == 'x':
+#                 self.__x = value
+#             elif key == 'y':
+#                 self.__y = value
+#             elif key == 'z':
+#                 self.__z = value
+#         else:
+#             print('Координаты должны быть числами')
+#
+#
+# pt1 = Point3D(12, 15, 18)
+# pt2 = Point3D(6, 3, 9)
+# print('Координаты первой точки: ', pt1)
+# print('Координаты второй точки: ', pt2)
+#
+# pt3 = pt1 + pt2
+# print(f'Сложение координат: ({pt3})')
+#
+# pt4 = pt1 - pt2
+# print(f'Разность координат: ({pt4})')
+#
+# pt5 = pt1 * pt2
+# print(f'Умножение: ({pt5})')
+#
+# pt6 = pt1 / pt2
+# print(f'Деление: ({pt6})')
+#
+# pt7 = pt1 == pt2
+# print(f'Равенство координат: {pt7}')
+#
+# print('x=', pt1['x'], 'x1=', pt2['x'])
+# print('y=', pt1['y'], 'y1=', pt2['y'])
+# print('z=', pt1['z'], 'z1=', pt2['z'])
+#
+# pt1['x'] = 20
+# print('Запись значения в координату x: ', pt1['x'])
+
+# class Cat:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def info(self):
+#         return f'Я кот. Меня зовут {self.name}. Мой возраст {self.age} года.'
+#
+#     def make_sound(self):
+#         return f'{self.name} мяукает.'
+#
+#
+# class Dog:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def info(self):
+#         return f'Я собака. Меня зовут {self.name}. Мой возраст {self.age} года.'
+#
+#     def make_sound(self):
+#         return f'{self.name} гавкает.'
+#
+#
+# c = Cat('Пушок', 2.5)
+# # print(c.info())
+# d = Dog('Мухтар', 4)
+# # print(d.info())
+# # shape = [c, d]
+# for g in [c, d]:
+#     print(g.info(),'\n',g.make_sound())
+
+
+# class Human:
+#     def __init__(self, lastname, name, age):
+#         self.name = name
+#         self.lastname = lastname
+#         self.age = age
+#
+#     def info(self):
+#         print(f'\n{self.lastname} {self.name} {self.age}', end=' ')
+#
+#
+# class Student(Human):
+#     def __init__(self, lastname, name, age, direction, group, rating):
+#         super().__init__(lastname, name, age)
+#         self.direction = direction
+#         self.group = group
+#         self.rating = rating
+#
+#     def info(self):
+#         super().info()
+#         print(f'{self.direction} {self.group} {self.rating}', end=' ')
+#
+#
+# class Teacher(Human):
+#     def __init__(self, lastname, name, age, spec, exp):
+#         super().__init__(lastname, name, age)
+#         self.spec = spec
+#         self.exp = exp
+#
+#     def info(self):
+#         super().info()
+#         print(f'{self.spec} {self.exp}', end=' ')
+#
+#
+# class Graduate(Student):
+#     def __init__(self, lastname, name, age, direction, group, rating, theme):
+#         super().__init__(lastname, name, age, direction, group, rating)
+#         self.theme = theme
+#
+#     def info(self):
+#         super().info()
+#         print(f'{self.theme}', end=' ')
+#
+#
+# group = [
+#     Student("Батодалаев", "Даши", 16, "ГК", "Web_011", 5),
+#     Student("Загидуллин", "Линар", 32, "РПО", "PD_011", 5),
+#     Graduate("Шугани", "Сергей", 15, "РПО", "PD_011", 5, "Защита персональных данных"),
+#     Teacher("Даньшин", "Андрей", 38, "Астрофизика", 110),
+#     Student("Маркин", "Даниил", 17, "ГК", "Python_011", 5),
+#     Teacher("Башкиров", "Алексей", 45, "Разработка приложений", 20)
+# ]
+# for i in group:
+#     i.info()
+
+
+# class Power:
+#     def __init__(self, func):
+#         self.func = func
+#
+#     def __call__(self, *args, **kwargs):
+#         res = self.func(*args, **kwargs)
+#         return res ** 2
+#
+#
+# @Power
+# def func1(a, b):
+#     return a * b
+#
+#
+# n = func1(2, 3)
+# print(n)
+
+
+# class Power:
+#     def __init__(self, arg):
+#         self.name = arg
+#
+#     def __call__(self, func):
+#         def wrap(a, b):
+#             return func(a, b) ** self.name
+#         return wrap
+#
+#
+# @Power(2)
+# def func1(a, b):
+#     return a * b
+#
+#
+# print(func1(2, 3))
+
+
+
 
