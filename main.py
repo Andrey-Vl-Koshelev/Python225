@@ -1,9 +1,10 @@
-# from car import electrocar
-#
+from car import electrocar
+
 # def main():
 #     e_car = electrocar.ElectroCar('Tesla', 'T', 2018, 99000)
 #     e_car.show_car()
 #     e_car.description_battery()
+#
 #
 # if __name__ == '__main__':
 #     main()
@@ -15,6 +16,7 @@
 #     def __init__(self, l, h):
 #         self.l = l
 #         self.h = h
+#
 #     def get_rect_perimetr(self):
 #         res = self.l * 2 + self.h * 2
 #         print(f"Периметр прямоугольника: {res}")
@@ -33,6 +35,7 @@
 # class Circle:
 #     def __init__(self, r):
 #         self.r = r
+#
 #     def get_circle_circumference(self):
 #         res = 2 * pi * self.r
 #         print(f"Длина окружности: {round(res, 2)}")
@@ -47,6 +50,7 @@
 #         print(f"Радиус круга: {self.r}")
 #         return self.r
 #
+#
 # class Cylinder(Rectangle, Circle):
 #     def __init__(self, r, h):
 #         Circle.__init__(self, r)
@@ -59,6 +63,7 @@
 #
 #     def print_cylinder(self):
 #         print(f"Радиус основания: {self.r}, высота: {self.h}")
+#
 #
 # circles = [Circle(4), Circle(2), Circle(6), Circle(8), Circle(1)]
 # rects = [Rectangle(3, 7), Rectangle(2, 7), Rectangle(19, 12)]
@@ -854,7 +859,3 @@
 #
 #
 # print(func1(2, 3))
-
-
-
-
