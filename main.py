@@ -859,3 +859,96 @@ from car import electrocar
 #
 #
 # print(func1(2, 3))
+# import json
+#
+# data = {
+#     "first_name": "Jane",
+#     "last_name": "Doe",
+#     "hobbies": ("running", "sky diving", "singing"),
+#     "age": 35,
+#     "children": [
+#         {
+#             "first_name": "Alice",
+#             "age": 6
+#         },
+#         {
+#             "first_name": "Bob",
+#             "age": 8
+#         },
+#     ]
+# }
+# with open("data_file.json", "w") as fw:
+#     json.dump(data, fw,indent=4)
+#
+# with open("data_file.json", "r") as fw:
+#     data = json.load(fw)
+#     print(data)
+# json_string = json.dumps(data, sort_keys=False)
+# print(json_string )
+#
+# data = json.loads(json_string )
+# print(data)
+
+
+import json
+from random import choice
+
+
+def gen_person():
+    name = ''
+    tel = ''
+    key = ''
+
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+    while len(name) != 7:
+        name += choice(letters)
+    # print(name)
+
+    while len(tel) != 10:
+        tel += choice(nums)
+    # print(tel)
+
+    while len(key) != 10:
+        key += choice(nums)
+    # print(key)
+
+    person = {}
+    new_person = person
+    person[key] = {
+        'name': name,
+        'tel': tel
+    }
+    return new_person
+
+
+def write_json(person_dict):
+    try:
+        data = json.load(open('persons.json'))
+    except FileNotFoundError:
+        data = []
+    data.append(person_dict)
+
+    with open('persons.json', 'w') as f:
+        json.dump(data, f, indent=2)
+
+
+for _ in range(5):
+    write_json(gen_person())
+
+# import json
+
+
+# class Student:
+#     def __init__(self, name, marks):
+#         self.name = name
+#         self.marks = marks
+#
+#     def __str__(self):
+#         a = ', '.join(self.marks)
+#         return f'Студент:{self.name} {a}'
+#
+#
+# st1 = Student('Bond', [5, 4, 3, 4, 5, 3])
+# print(st1)
