@@ -1,3 +1,4 @@
+import main
 from car import electrocar
 
 # def main():
@@ -914,28 +915,25 @@ from car import electrocar
 #         key += choice(nums)
 #     # print(key)
 #
-#     person = {}
-#     new_person = person
-#     person[key] = {
+#     person = {
 #         'name': name,
 #         'tel': tel
 #     }
-#     return new_person
+#     return person, key
 #
 #
-# def write_json(person_dict):
+# def write_json(person_dict, key):
 #     try:
 #         data = json.load(open('persons.json'))
 #     except FileNotFoundError:
-#         data = []
-#     data.append(person_dict)
-#
+#         data = {}
+#     data[key] = person_dict
 #     with open('persons.json', 'w') as f:
 #         json.dump(data, f, indent=2)
 #
 #
 # for _ in range(5):
-#     write_json(gen_person())
+#     write_json(gen_person()[0], gen_person()[1])
 
 # import json
 #
@@ -1055,3 +1053,104 @@ from car import electrocar
 # st1.edit_mark(2, 4)
 # print(st1)
 # print(st1.average_mark())
+
+# import json
+#
+#
+# class Country:
+#
+#     def __init__(self, num):
+#         self.data = {}
+#         self.num = num
+#
+#     def __str__(self):
+#         return f'{self.num}'
+#
+#     def pin_country(self):
+#         if self.num == 5:
+#             with open('country.json', 'r') as f:
+#                 return json.load(f)
+#
+#
+#     def add_country(self):
+#         if self.num == 1:
+#             try:
+#                 self.data = json.load(open('country.json'))
+#             except FileNotFoundError:
+#                 self.data = {}
+#             country = input('Введите название страны: ')
+#             capital = input('Введите название столицы страны: ')
+#             self.data[country] = capital
+#             with open('country.json', 'w') as f:
+#                 json.dump(self.data, f, indent=2)
+#                 print('Файл сохранен')
+#
+#     def removal_country(self):
+#         if self.num == 2:
+#             try:
+#                 self.data = json.load(open('country.json'))
+#             except FileNotFoundError:
+#                 self.data = {}
+#             country = input('Введите название страны для удаления: ')
+#             self.data.pop(country)
+#             with open('country.json', 'w') as f:
+#                 json.dump(self.data, f, indent=2)
+#                 print('Файл сохранен')
+#
+#     def scan_country(self):
+#         if self.num == 3:
+#             self.data = json.load(open('country.json'))
+#             country = input('Введите название страны для поиска столицы: ')
+#             n = self.data[country]
+#             return f'Столица - {n}'
+#
+#     def changes_country(self):
+#         if self.num == 4:
+#             try:
+#                 self.data = json.load(open('country.json'))
+#             except FileNotFoundError:
+#                 self.data = {}
+#             country = input('Введите название страны столицу которой хотите изменить: ')
+#             capital = input('Введите новое название столицы: ')
+#             self.data[country] = capital
+#
+#             with open('country.json', 'w') as f:
+#                 json.dump(self.data, f, indent=2)
+#                 m = self.data.get(country)
+#                 return f'Уточненное название столицы - {m}'
+#
+#     def end_of(self):
+#         if self.num == 6:
+#             return f'Завершение работы.'
+#
+#     @classmethod
+#     def main(cls):
+#
+#         while True:
+#             print('*' * 40)
+#             print(
+#                 f'Выбор действия:\n1 - добавление данных\n2 - удаление данных\n'
+#                 f'3 - поиск данных\n4 - редактирование данных\n5 - просмотр данных\n'
+#                 f'6 - завершение работы'
+#             )
+#             num = int(input('Ввод: '))
+#             if num == 5:
+#                 print(Country(5).pin_country())
+#             elif num == 1:
+#                 print(Country(1).add_country())
+#
+#             elif num == 2:
+#                 print(Country(2).removal_country())
+#
+#             elif num == 3:
+#                 print(Country(3).scan_country())
+#
+#             elif num == 4:
+#                 print(Country(4).changes_country())
+#             else:
+#                 print(Country(6).end_of())
+#                 print('*' * 40)
+#                 break
+#
+#
+# Country.main()
