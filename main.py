@@ -1,4 +1,4 @@
-import main
+# import main
 from car import electrocar
 
 # def main():
@@ -1154,3 +1154,387 @@ from car import electrocar
 #
 #
 # Country.main()
+
+# a = int(input('Введите первую сторону: '))
+# b = int(input('Введите вторую сторону: '))
+# c = int(input('Введите третью сторону: '))
+#
+# if a == b == c:
+#     print('Треугольник равносторонний')
+# elif a == b or a == c or b == c:
+#     print('Треугольник равнобедренный')
+# else:
+#     print('Треугольник разносторонний')
+
+# month = int(input('Введите номер месяца: '))
+# if 1 <= month <= 2 or month == 12:
+#     print('Зима')
+# elif 3 <= month <= 5:
+#     print('Весна')
+# elif 6 <= month <= 8:
+#     print('Лето')
+# elif 9 <= month <= 11:
+#     print('Осень')
+# else:
+#     print('Нет такого месяца')
+
+# n = int(input('Введите число от 1 до 99: '))
+# if 0 <= n <= 99:
+#     if 11 <= n <= 14:
+#         print(f'{n} копеек')
+#     elif n % 10 == 1:
+#         print(f'{n} копейка')
+#     elif 2 <= n % 10 <= 4:
+#         print(f'{n} копейки')
+#     else:
+#         print(f'{n} копеек')
+# else:
+#     print('Не верный диапазон')
+
+# n = input('Ведите число цифрой или прописью: ')
+# m = input('Ведите число цифрой или прописью: ')
+# try:
+#     n = int(n)
+#     m = int(m)
+# except ValueError:
+#     n = str(n)
+#     m = str(m)
+# finally:
+#     print(n + m)
+
+# print('*' * 7)
+
+# n = int(input('Ведите начало диапазона: '))
+# m = int(input('Ведите конец диапазона: '))
+#
+# i = n
+# res = 0
+# while i <= m:
+#     if i % 2:
+#         res += i
+#     i += 1
+# print(f'Сумма целых нечетных чисел: {res}')
+
+# res = 1
+# while True:
+#     n = int(input('Введите число: '))
+#     if n == 0:
+#         break
+#     res *= n
+# print('Результат: ', res)
+
+# res = ''
+# while True:
+#
+#     print('Выберете операцию:')
+#     print(f'1 - "g" - выход\n2 - "+" - сложение\n3 - "-" - вычитание\n'
+#           f'4 - "/" - деление\n5 - "*" - умножение\n6 - "%" - деление по модулю')
+#     n = int(input('Введите цифру: '))
+#
+#     if n == 1:
+#         break
+#     m = int(input('Введите первое число: '))
+#     s = int(input('Введите второе число: '))
+#     if s == 0:
+#         print('На 0 делить нельзя')
+#     elif n == 2:
+#         res = m + s
+#         print(res)
+#     elif n == 3:
+#         res = m - s
+#         print(res)
+#     elif n == 4:
+#         res = m / s
+#         print(res)
+#     elif n == 5:
+#         res = m * s
+#         print(res)
+#     elif n == 6:
+#         res = m % s
+#         print(res)
+
+# n = int(input('Количество символов: '))
+# m = input('Тип символа: ')
+# print(f'0 - горизонтальная\n1 - вертикальная')
+# s = int(input('Ориентация линии:'))
+# i = 0
+# while i < n:
+#     if s == 0:
+#         print(m, end=' ')
+#     elif s == 1:
+#         print(m )
+#     else:
+#         print('Такой ориентации не предусмотрено.')
+#         break
+#     i += 1
+
+# n = int(input('Введите количество чисел последовательности: '))
+# i = 1
+# num = float(input('Введите число: '))
+# res = 0
+# minim = num
+# maxim = num
+# while i < n:
+#     num = float(input('Введите число: '))
+#     res += num / n
+#     if maxim < n:
+#         maxim = n
+#     if minim > n:
+#         minim = n
+#     i += 1
+# print('Количество чисел', n)
+# print('Среднее арифметическое:', res)
+# print('Минимальное число равно:', minim)
+# print('Максимальное число равно:', maxim)
+
+# i = 0
+# while i < 3:
+#     j = 0
+#     while j < 6:
+#         print('^', end='')
+#         j += 1
+#     print()
+#     i += 1
+
+# i = 0
+# while i < 5:
+#     j = 0
+#     while j < 15:
+#         if i % 2 == 0:
+#             print('+', end='')
+#         else:
+#             print('-', end='')
+#         j += 1
+#     print()
+#     i += 1
+
+# n = int(input('Введите целое число: '))
+# for i in range(1, n):
+#     if n % i == 0:
+#         print(i, end=' ')
+
+# for i in range(10, 100):
+#     if i % 11 == 0:
+#         print(i, end=' ')
+
+# n = int(input('Введите длину прямоугольника: '))
+# m = int(input('Введите высоту прямоугольника: '))
+# for i in range(m + 1):
+#     for j in range(n + 1):
+#         print('*', end=' ')
+#     print()
+
+# n = int(input('Введите длину прямоугольника: '))
+# m = int(input('Введите высоту прямоугольника: '))
+# for i in range(m):
+#     for j in range(n):
+#         if i == 0 or i == m - 1 or j == 0 or j == n - 1:
+#             print('*', end=' ')
+#         else:
+#             print(' ', end=' ')
+#     print()
+
+# n = 5
+# for i in range(1, n + 1):
+#     print(i ** 2, end=' ')
+
+# генератор ввода кода
+# print([int(input('-> ')) for i in range(int(input('n = ')))])
+
+# n = 4
+# sum = 0
+# for i in range(4):
+#     a = int(input('-> '))
+#     if a < 0:
+#         sum += a
+# print(sum)
+
+# sum = 0
+# cal = 0
+# for i in range(20):
+#     if i % 2 == 0:
+#         cal += 1
+#     else:
+#         sum += i
+# print('Количество четных элементов: ', cal)
+# print('Сумма  нечетных: ', sum)
+
+# s = 0
+# k = 0
+# n = [6, 3, 0, 8, 2]
+# for i in n:
+#     if i > 0:
+#         s += i
+#         k += 1
+# print('Среднее арифметическое:', s / k)
+
+# a = [int(input('-> ')) for i in range(int(input('n = ')))]
+# for i in range(1, len(a)):
+#     if a[i] > a[i - 1]:
+#         print(a[i], end=' ')
+
+# n = int(input('Количество элементов списка: '))
+# m = []
+# for i in range(n):
+#     s = int(input('Введите число кратное 3: '))
+#     if s % 3 == 0:
+#         m.append(s)
+#     else:
+#         print(f'{s} не делится на 3 без остатка.')
+# print(m)
+
+# n = [1, 2, 3]
+# m = [11, 22, 33, 5, 6]
+# c = []
+# i = 0
+# while i < len(m):
+#     if i < len(n):
+#         c.append(n[i])
+#         c.append(m[i])
+#     else:
+#         c.append(m[i])
+#     i += 1
+# print(c)
+
+# m = [11, 22, 33, 5, 6]
+# del m[2]
+# print(m)
+
+# n = [1, 3, 5, 6, 2, 4, 6, 1, 2, 7]
+# m = []
+# for i in n:
+#     if n.count(i) == 1:
+#         m.append(i)
+# print(m)
+
+
+# import requests
+# import json
+
+# response = requests.get('https://jsonplaceholder.typicode.com/todos')
+# todos = json.loads(response.text)
+# # print(todos[:10])
+# # print(type(todos))
+#
+# todos_by_user = {}
+#
+# for todo in todos:
+#     if todo['completed']:
+#         try:
+#             todos_by_user[todo['userId']] += 1
+#         except KeyError:
+#             todos_by_user[todo['userId']] = 1
+# print(todos_by_user)
+#
+# top_users = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)
+# print(top_users)
+# max_complete = top_users[0][1]
+# print(max_complete)
+# users = []
+# for user, num_complete in top_users:
+#     if num_complete < max_complete:
+#         break
+#     users.append(str(user))
+# print(users)
+# max_users = ' and '.join(users)
+# s = 's' if len(users) > 1 else ''
+# print(f'user{s} {max_users} completed {max_complete} TODOs')
+#
+#
+# def keep(todo):
+#     is_complete = todo['completed']
+#     has_max_count = str(todo['userId']) in users
+#     return is_complete and has_max_count
+#
+#
+# with open('filtered_file.json', 'w') as data_file:
+#     filtered_todos = list(filter(keep, todos))
+#     # print(filtered_todos)
+#     json.dump(filtered_todos, data_file, indent=2)
+# with open('filtered_file.json', 'r') as fw:
+#     data = json.load(fw)
+#     print(data)
+
+import csv
+
+# with open('data.csv') as r_file:
+#     file_reader = csv.reader(r_file, delimiter=';')
+# count = 0
+# for row in file_reader:
+#     print(row)
+#     if count == 0:
+#         print(f"Файл содержит столбцы: {', '.join(row)}")
+#     else:
+#         print(f'   {row[0]} - {row[2]}. Родился в {row[2]} году.')
+#     count += 1
+# print(f'Всего в файле {count} строки.')
+# with open('data.csv') as r_file:
+#     field_names = ['Имя', 'Профессия', 'Год рождения']
+#     file_reader = csv.DictReader(r_file, delimiter=';', fieldnames=field_names)
+#     count = 0
+#     for row in file_reader:
+#         if count == 0:
+#             print(f"Файл содержит столбцы: {', '.join(row)}")
+#         print(f'{row["Имя"]} - {row["Профессия"]}. Родился в {row["Год рождения"]} году')
+#         # count += 1
+# with open('student.csv', 'w') as f:
+#     writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#     writer.writerow(['Имя', 'Класс', 'Возраст'])
+#     writer.writerow(['Женя', '9', '10'])
+#     writer.writerow(['Петя', '8', '11'])
+
+# data = [['hostname', 'vendor', 'model', 'location'],
+#         ['sw1', 'Cisco', '3750', 'London, Best str'],
+#         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
+#         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
+#         ['sw4', 'Cisco', '3650', 'London, Best str']]
+# with open('data_new.csv', 'w') as f:
+#     writer = csv.writer(f, delimiter=',', lineterminator='\r', quoting=csv.QUOTE_NONNUMERIC)
+#     # for row in data:
+#     #     writer.writerow(row)
+#     writer.writerows(data)
+# with open('data_new.csv', 'r') as f:
+#     print(f.read())
+
+# with open('student1.csv', 'w') as f:
+#     names = ['Имя', 'Возраст']
+#     file_writer = csv.DictWriter(f, delimiter=';', lineterminator='\r', fieldnames=names)
+#     file_writer.writeheader()
+#     file_writer.writerow(({'Имя': 'Саша', 'Возраст': '7'}))
+
+# data = [{
+# #     'hostname': 'sw1',
+# #     'location': 'London',
+# #     'model': '3750',
+# #     'vendor': 'Cisco'
+# # }, {
+# #     'hostname': 'sw2',
+# #     'location': 'Liverpool',
+# #     'model': '3850',
+# #     'vendor': 'Cisco'
+# # }, {
+# #     'hostname': 'sw3',
+# #     'location': 'Liverpool',
+# #     'model': '3650',
+# #     'vendor': 'Cisco'
+# # }, {
+# #     'hostname': 'sw4',
+# #     'location': 'London',
+# #     'model': '3650',
+# #     'vendor': 'Cisco'
+# # }]
+# #
+# # with open('dictwriter.csv', 'w') as f:
+# #     writer = csv.DictWriter(f, fieldnames=list(data[0].keys()))
+# #     writer.writeheader()
+# #     for d in data:
+# #         writer.writerow(d)
+
+import requests
+import csv
+
+with open('DZ/data2.csv', 'r') as f:
+    print(f.read())
+
+
+

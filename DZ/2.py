@@ -13,20 +13,20 @@ class Country:
     def pin_country(self) -> dict:
         """Просмотр данных."""
         if self.num == 5:
-            with open('country.json', 'r') as f:
+            with open('../country.json', 'r') as f:
                 return json.load(f)
 
     def add_country(self) -> None:
         """Добавление данных."""
         if self.num == 1:
             try:
-                self.data = json.load(open('country.json'))
+                self.data = json.load(open('../country.json'))
             except FileNotFoundError:
                 self.data = {}
             country = input('Введите название страны: ')
             capital = input('Введите название столицы страны: ')
             self.data[country] = capital
-            with open('country.json', 'w') as f:
+            with open('../country.json', 'w') as f:
                 json.dump(self.data, f, indent=2)
                 print('Файл сохранен')
 
@@ -34,19 +34,19 @@ class Country:
         """Удаление данных."""
         if self.num == 2:
             try:
-                self.data = json.load(open('country.json'))
+                self.data = json.load(open('../country.json'))
             except FileNotFoundError:
                 self.data = {}
             country = input('Введите название страны для удаления: ')
             self.data.pop(country)
-            with open('country.json', 'w') as f:
+            with open('../country.json', 'w') as f:
                 json.dump(self.data, f, indent=2)
                 print('Файл сохранен')
 
     def scan_country(self) -> str:
         """Поиск данных."""
         if self.num == 3:
-            self.data = json.load(open('country.json'))
+            self.data = json.load(open('../country.json'))
             country = input('Введите название страны для поиска столицы: ')
             n = self.data[country]
             return f'Столица - {n}'
@@ -55,14 +55,14 @@ class Country:
         """Редактирование данных."""
         if self.num == 4:
             try:
-                self.data = json.load(open('country.json'))
+                self.data = json.load(open('../country.json'))
             except FileNotFoundError:
                 self.data = {}
             country = input('Введите название страны столицу которой хотите изменить: ')
             capital = input('Введите новое название столицы: ')
             self.data[country] = capital
 
-            with open('country.json', 'w') as f:
+            with open('../country.json', 'w') as f:
                 json.dump(self.data, f, indent=2)
                 m = self.data.get(country)
                 return f'Уточненное название столицы - {m}'
