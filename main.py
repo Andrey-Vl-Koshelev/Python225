@@ -1581,10 +1581,10 @@ import csv
 # for i in salary:
 #     get_salary(i.text)
 
-import requests
-from bs4 import BeautifulSoup
-import re
-import csv
+# import requests
+# from bs4 import BeautifulSoup
+# import re
+# import csv
 
 
 # reg = requests.get('https://ru.wordpress.org/')
@@ -1648,6 +1648,44 @@ import csv
 #
 # def main():
 #     url = 'https://ru.wordpress.org/plugins/'
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# import requests
+# from bs4 import BeautifulSoup
+# import re
+# import csv
+#
+#
+# def get_html(url):
+#     res = requests.get(url)
+#     return res.text
+#
+#
+# def write_csv(name):
+#     with open('DZ/built_in.csv', 'w', encoding='utf-8') as f:
+#         writer = csv.writer(f, delimiter=",", lineterminator='\r', quotechar=' ', quoting=csv.QUOTE_MINIMAL)
+#         writer.writerow(name)
+#
+#
+# name = []
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     s1 = soup.find_all('div', class_='page__content')[0]
+#     plugins = s1.find_all('h3')
+#     for plugin in plugins:
+#         data = plugin.find('a').get('name')
+#         name.append(data)
+#         write_csv(name)
+#
+#
+# def main():
+#     url = 'https://letpy.com/handbook/builtins/'
 #     get_data(get_html(url))
 #
 #
