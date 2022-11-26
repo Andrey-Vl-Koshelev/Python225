@@ -2437,3 +2437,81 @@ import math
 # print(res2)
 # res3 = sorted(d, key=lambda y: y['raiting'], reverse=True)
 # print(res3)
+
+
+# from bs4 import BeautifulSoup
+# import requests
+# import csv
+#
+#
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def write_csv(data):
+#     with open('plugins1.csv', 'a') as f:
+#         writer = csv.writer(f, lineterminator='\r', delimiter=';')
+#         writer.writerow((data['name'],
+#                           data['url'],
+#                           data['snip'],
+#                           data['active'],
+#                           data['tested']
+#                           ))
+#
+#
+# def refine_cy(s):
+#     return s.split()[-1]
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     elem = soup.find_all('article', class_='plugin-card')
+#     for el in elem:
+#         try:
+#             name = el.find('h3').text
+#             # print(name)
+#         except ValueError:
+#             name = ''
+#
+#         try:
+#             url = el.find('h3').find('a').get('href')
+#             # print(url)
+#         except ValueError:
+#             url = ''
+#
+#         try:
+#             snip = el.find('div', class_='entry-excerpt').text.strip()
+#             # print(snip)
+#         except ValueError:
+#             snip = ''
+#
+#         try:
+#             active = el.find('span', class_="active-installs").text.strip()
+#             # print(active)
+#         except ValueError:
+#             active = ''
+#         try:
+#             c = el.find('span', class_='tested-with').text.strip()
+#             cy = refine_cy(c)
+#             print(cy)
+#         except ValueError:
+#             cy = ''
+#
+#         data = {
+#             'name': name,
+#             'url': url,
+#             'snip': snip,
+#             'active': active,
+#             'tested': cy
+#         }
+#         write_csv(data)
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/plugins/browse/blocks/"
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
