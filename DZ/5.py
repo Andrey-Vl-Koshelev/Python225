@@ -13,6 +13,14 @@ def decorator_in(func):
     return wrap
 
 
+def decorator_too(func):
+    def wrap(*args, **kwargs):
+        func(*args, **kwargs)
+        print('Файл сохранен')
+
+    return wrap
+
+
 class CountryCapital:
     def __init__(self, country, capital):
         self.country = country
@@ -23,6 +31,7 @@ class CountryCapital:
         return f'{self.country}: {self.capital}'
 
     @classmethod
+    @decorator_too
     @decorator_in
     def add_country(cls, new_country, new_capital, filename):
         data1 = json.load(open('list_capital.json'))
@@ -31,6 +40,7 @@ class CountryCapital:
             json.dump(data1, f, indent=2, ensure_ascii=False)
 
     @classmethod
+    @decorator_too
     @decorator_in
     def delete_country(cls, del_country, filename):
         data1 = json.load(open('list_capital.json'))
@@ -52,6 +62,7 @@ class CountryCapital:
             print(f"Страна {country} отсутствует в словаре")
 
     @classmethod
+    @decorator_too
     @decorator_in
     def change_capital(cls, country, new_value, filename):
         data1 = json.load(open('list_capital.json'))
@@ -84,11 +95,9 @@ while index != 6:
             country_name = input("Введите название страны (с заглавной буквы): ")
             capital_name = input("Введите название столицы страны (с заглавной буквы): ")
             CountryCapital.add_country(country_name, capital_name, 'list_capital.json')
-            print("Файл сохранен")
         if index == 2:
             country_name = input("Введите страну для удаления (с заглавной буквы): ")
             CountryCapital.delete_country(country_name, 'list_capital.json')
-            print("Файл сохранен")
         if index == 3:
             country_name = input("Введите название страны (с заглавной буквы): ")
             CountryCapital.search_data(country_name, 'list_capital.json')
@@ -96,7 +105,6 @@ while index != 6:
             country_name = input("Введите название страны столицу которой хотите изменить (с заглавной буквы): ")
             new_capital = input("Введите новое название столицы: ")
             CountryCapital.change_capital(country_name, new_capital, 'list_capital.json')
-            print("Файл сохранен")
         if index == 5:
             CountryCapital.load_from_file('list_capital.json')
     except IndexError:
