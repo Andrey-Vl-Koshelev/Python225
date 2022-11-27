@@ -2520,6 +2520,8 @@ import math
 from bs4 import BeautifulSoup
 import requests
 import csv
+
+
 # from parse import Parser
 #
 #
@@ -2531,59 +2533,94 @@ import csv
 # if __name__ == '__main__':
 #     main()
 
-import socket
-from view import index
+# import socket
+# from view import index
+#
+# URLS = {
+#     '/': index,
+#     '/blog': 'blog page'
+# }
+#
+#
+# def parse_request(request):
+#     parsed = request.split()
+#     method = parsed[0]
+#     url = parsed[1]
+#     return method, url
+#
+#
+# def generate_headers(method, url):
+#     if method != 'GET':
+#         return 'HTTP/1.1 405 Method Not Allowed!\n\n', 405
+#     if url not in URLS:
+#         return 'HTTP/1.1 404 Page Not Found!\n\n', 404
+#     return 'HTTP/1.1 200 OK!\n\n', 200
+#
+#
+# def generate_content(code, url):
+#     if code == 404:
+#         return '<h1>404</h1><h3>Page not found!</h3>'
+#     elif code == 405:
+#         return '<h1>405</h1><h3>Method Not Allowed!</h3>'
+#     return URLS[url]
+#
+#
+# def generate_response(request):
+#     method, url = parse_request(request)
+#     headers, code = generate_headers(method, url)
+#     body = generate_content(code, url)
+#     return (headers + body).encode()
+#
+#
+# def run():
+#     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     server_socket.bind(('127.0.0.1', 5000))
+#     server_socket.listen()
+#
+#     while True:
+#         client_socket, addr = server_socket.accept()
+#         request = client_socket.recv(1024)
+#         print(f"Клиент: {addr} => \n{request.decode('utf-8')}\n")
+#
+#         response = generate_response(request.decode())
+#         client_socket.sendall(response)
+#         client_socket.close()
+#
+#
+# if __name__ == '__main__':
+#     run()
 
-URLS = {
-    '/': index,
-    '/blog': 'blog page'
-}
+# l1 = [1, 2, 3]
+# l2 = [4, 5, 6]
+# print(list(map(lambda x, y: x + y, l1, l2)))
+
+# from random import *
+#
+# n = [randint(1, 40) for i in range(10)]
+# print(n)
+# m = list(filter(lambda s: 10 <= s <= 20, n))
+# print(m)
 
 
-def parse_request(request):
-    parsed = request.split()
-    method = parsed[0]
-    url = parsed[1]
-    return method, url
+# def decor(func):
+#     n = 0
+#
+#     def wrap():
+#         nonlocal n
+#         n += 1
+#         func()
+#         return n
+#
+#     return wrap
+#
+#
+# @decor
+# def hello():
+#     print('Hello')
+#
+#
+# print(hello())
+# print(hello())
+# print(hello())
 
 
-def generate_headers(method, url):
-    if method != 'GET':
-        return 'HTTP/1.1 405 Method Not Allowed!\n\n', 405
-    if url not in URLS:
-        return 'HTTP/1.1 404 Page Not Found!\n\n', 404
-    return 'HTTP/1.1 200 OK!\n\n', 200
-
-
-def generate_content(code, url):
-    if code == 404:
-        return '<h1>404</h1><h3>Page not found!</h3>'
-    elif code == 405:
-        return '<h1>405</h1><h3>Method Not Allowed!</h3>'
-    return URLS[url]
-
-
-def generate_response(request):
-    method, url = parse_request(request)
-    headers, code = generate_headers(method, url)
-    body = generate_content(code, url)
-    return (headers + body).encode()
-
-
-def run():
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('127.0.0.1', 5000))
-    server_socket.listen()
-
-    while True:
-        client_socket, addr = server_socket.accept()
-        request = client_socket.recv(1024)
-        print(f"Клиент: {addr} => \n{request.decode('utf-8')}\n")
-
-        response = generate_response(request.decode())
-        client_socket.sendall(response)
-        client_socket.close()
-
-
-if __name__ == '__main__':
-    run()
