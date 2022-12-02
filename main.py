@@ -1,4 +1,6 @@
 # import main
+import re
+
 from car import electrocar
 
 # def main():
@@ -2521,7 +2523,6 @@ from bs4 import BeautifulSoup
 import requests
 import csv
 
-
 # from parse import Parser
 #
 #
@@ -2623,4 +2624,239 @@ import csv
 # print(hello())
 # print(hello())
 
+# def multiply(n):
+#     def nambers(fn):
+#         def wrap(*args):
+#             return n * fn(*args)
+#
+#         return wrap
+#
+#     return nambers
+#
+#
+# @multiply(3)
+# def return_num(num):
+#     return num
+#
+#
+# print('Результат : ',return_num(5))
 
+# s = 'Test string for me'
+# # n = []
+# # for i in s:
+# #     n.append(ord(i))
+# n = [ord(x) for x in s]
+# print('ASCII коды:', n)
+# n = [int(sum(n) / len(n))] + n
+# print('Среднее арифметическое:', n)
+# n += [x for x in [ord(x) for x in (input('-> '))[:3]] if x not in n]
+# print(n)
+# if n[-1] in n[:-1]:
+#     print('Количество последних элементов:', n.count(n[-1]) - 1)
+# n.sort(reverse=True)
+# print(n)
+
+# a = 122
+# b = 97
+# if a > b:
+#     for i in range(b, a + 1):
+#         print(chr(i), end=' ')
+# else:
+#     for i in range(a, b + 1):
+#         print(chr(i), end=' ')
+
+# n = 'один два'
+# m = n[:n.find(' ')]
+# v = n[n.find(' ') + 1:]
+# s = v + ' ' + m
+# print(s)
+
+# s = 'ab12c59p7dq'
+# n = []
+# for i in s:
+#     if '0123456789'.find(i) != -1:
+#         n.append(int(i))
+# print(n)
+
+# n = 'Дана ст(рока символов, среди которых есть одна открыв)ающаяся'
+# v = n.index('(')
+# c = n.index(')')
+# m = n[v + 1:c]
+# print(m)
+
+# s = 'В строке заменить пробелы символом'
+# n = s.split()
+# print('*'.join(n))
+
+# import re
+# n = 'Час в 24-часовом формате от 00 до 23. 2021-06-15Т21:45. Минуты, в диапазоне от 00 до 59. 2021-06-15Т01:09.'
+# reg = r'[0-2][0-9]:[0-5][0-9]'
+# print(re.findall(reg, n))
+
+# s = '05-03-1987 # Дата рождения'
+# n = re.sub('#.*','',s)
+# print('Дата рождения:', re.sub('-', '.', n))
+
+# s = 'author=Пушкин А.С.; title = Евгений Онегин; price =200; year= 1831'
+# n = r'\w+\s*=\s*[^;]+'
+# print(re.findall(n, s))
+
+# s = '+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 74994564578'
+# # n = r'\s[+]*\d{11}'
+# n = r'\+?7\d{10}'
+# print(re.findall(n, s))
+
+# s = '123456@i.ru, 123_456@ru.name.ru, login@i.ru, логин-1@i.ru'
+# n = r'[A-zА-я0-9_-]+@[A-zА-я0-9\.]+'
+# print(re.findall(n, s))
+
+# s = 'Desktop\ДЗ[76] по курсу[65] PYTHON[22]5\venv\Scripts\python.exe"[78] \Desktop\ДЗ по курсу '
+# n = r'\[.*?]'
+# print(re.findall(n, s))
+
+# s = '28-08-2021'
+# n = '(0[1-9]|[1-3][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9][0-9]|20[0-9][0-9])'
+# print(re.findall(n, s))
+
+
+# def validate_phone(name):
+#     reg = r'\+?[0-9\s\(\)-]+$'
+#     # reg = r'^\+?7[ (]*\d+[ )]*[\d -]{8,10}$'
+#     return re.search(reg, name).group()
+#
+#
+# print(validate_phone('+7 499 456-45-78'))
+# print(validate_phone('+74994564578'))
+# print(validate_phone('7 (499) 456 45 78'))
+# print(validate_phone('7 (499) 456-45-78'))
+
+# names = ['Adam', ['Bob', ['Chet', 'Cat'], 'Barb', 'Bert'], 'Alex', ['Bea', 'Bill'], 'Ann']
+
+
+# def count_items(item_list):
+#     count = 0
+#     for i in item_list:
+#         if isinstance(i, list):
+#             for j in i:
+#                 if isinstance(j, list):
+#                     for _ in j:
+#                         count += 1
+#                 else:
+#                     count += 1
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(count_items(names))
+
+# Рекурсия
+
+# def count_items(item_list):
+#     count = 0
+#     for item in item_list:
+#         if isinstance(item, list):
+#             count += count_items(item)
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(count_items(names))
+
+# f = open(r'C:\Users\User\Desktop\ДЗ по курсу PYTHON\ДЗ_Python225\text.txt', 'r')
+# n = []
+# for i in f:
+#     n.append(i)
+# print(len(n))
+# print(len(f.readlines()))
+
+# print(f.read())
+# print(f.readline())
+# print(f.readline(8))
+# print(f.readline())
+# print(f.readline())
+# print(f.readlines())
+
+# # print(f.closed)
+# # print(f.mode)
+# # print(f.name)
+# # print(f.encoding)
+# f.close()
+# f = open(r'C:\Users\User\Desktop\ДЗ по курсу PYTHON\ДЗ_Python225\text.txt', 'r')
+# try:
+#     print(f.read())
+# finally:
+#     f.close()
+# s = ['This is line4', 'This is line4']
+# f = open('text.txt', 'a')
+# f.writelines(s)
+# f.close()
+# f = open('text.txt', 'w')
+# s = [str(i) + str(i -1) for i in range(1,20)]
+# # print(s)
+# for i in s:
+#     f.write(i + '\t')
+# f.close()
+# n = [-2, 3, 8, -11, -4, 6]
+
+
+# def my(lst):
+#     count = 0
+#     for i in lst:
+#         if i > 0:
+#             count += 1
+#     return count
+#
+#
+# print(my(n))
+# def my(lst):
+#     count = 0
+#     for i in lst[:]:
+#         if i > 0 or len(lst) == 0:
+#             lst[0] += my(lst[1:])
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(my(n))
+
+# s = ['методами', 'символов', 'попыткой']
+# with open('text.txt', 'w') as f:
+#     n = ' '.join(s)
+#     f.write(n)
+# with open('text.txt', 'r') as f:
+#     m = f.read().split()
+#     b = len(max(m, key=len))
+#     res = [i for i in m if len(i) == b]
+#     print(res)
+
+# text = 'Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10'
+#
+# with open('text.txt', 'w', encoding='utf-8') as f:
+#     f.write(text)
+
+# read_file = 'text.txt'
+# write_file = 'text2.txt'
+#
+# with open(read_file, 'r', encoding='utf-8') as fr, open(write_file, 'w', encoding='utf-8') as fw:
+#     for line in fr:
+#         line = line.replace('Строка', 'Линия -')
+#         fw.write(line)
+# with open(write_file, 'r', encoding='utf-8') as fw:
+#     for line in fw:
+#         print(line, end='')
+# f = open('text.txt',)
+# line = 0
+# for i in f:
+#     line += 1
+# print(line, ' строк')
+# f.close()
+import os
+# print('Текущая директория:', os.getcwd())
+# # print(os.listdir())
+# print(os.listdir('..'))
+
+# os.mkdir('folder')
+# os.makedirs()

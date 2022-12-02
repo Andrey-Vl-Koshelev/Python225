@@ -15,7 +15,7 @@ def write_csv(data):
                          data['urs'],
                          data['snippet'],
                          data['active']))
-        
+
 
 def get_data(html):
     soup = BeautifulSoup(html, 'lxml')
