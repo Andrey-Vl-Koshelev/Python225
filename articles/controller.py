@@ -36,6 +36,10 @@ class Controller:
                 self.user_interface.show_incorrect_title_error(article_title)
             else:
                 self.user_interface.remove_single_article(title)
+        elif answer == 'q':
+            self.article_model.save_data()
+        else:
+            self.user_interface.show_incorrect_answer_error(answer)
 
 
 
