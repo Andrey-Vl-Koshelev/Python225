@@ -2855,7 +2855,6 @@ import csv
 # f.close()
 import os
 
-
 # print('Текущая директория:', os.getcwd())
 # # print(os.listdir())
 # print(os.listdir('..'))
@@ -2874,8 +2873,339 @@ import os
 #     # summa REAL,
 #     # data TEXT
 #     # )""")
+import math
+
+# class Human:
+#     name = 'name'
+#     birthday = '00.00.0000'
+#     phone = '00-00-00'
+#     country = 'country'
+#     city = 'city'
+#     address = 'street, house'
+#
+#     def print_info(self):
+#         print(' Персональные данные'.center(40, '*'))
+#         print(f'Имя: {self.name}\nДата рождения: {self.birthday}\n'
+#               f'Номер телефона: {self.phone}\nСтрана: {self.country}\n'
+#               f'Город: {self.city}\nДомашний адрес: {self.address}')
+#         print(40 * '=')
+#
+#     def input_info(self, first_name, birthday, phone, country, city, address):
+#         self.name = first_name
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.country = country
+#         self.city = city
+#         self.address = address
+#
+#     def set_name(self, name):
+#         self.name = name
+#
+#     def get_name(self):
+#         return self.name
+#
+#
+# h1 = Human()
+# h1.input_info('Юля', '23.05.1986', '45-46-98', 'Россия', 'Москва', 'Чистопрудный бульвар, 1А')
+# h1.print_info()
+# h1.set_name('Валерия')
+# print(h1.get_name())
+
+# class Book:
+#     name = 'name'
+#     year = 'year'
+#     publisher = 'publisher'
+#     genre = 'genre'
+#     author = 'author'
+#     price = 'price'
+#
+#     def print_info(self):
+#         print(' Персональные данные '.center(40, '*'))
+#         print(f'Название книги: {self.name}\n'
+#               f'Год выпуска: {self.year}\n'
+#               f'Издатель: {self.publisher}\n'
+#               f'Жанр: {self.genre}\n'
+#               f'Автор: {self.author}\n'
+#               f'Цена: {self.price}')
+#         print('=' * 40)
+#
+#     def input_info(self, name, year, publisher, genre, author, price):
+#         self.name = name
+#         self.year = year
+#         self.publisher = publisher
+#         self.genre = genre
+#         self.author = author
+#         self.price = price
+#
+#     def set_name(self, name):
+#         self.name = name
+#
+#     def get_name(self):
+#         return self.name
+#
+#
+#
+# h2 = Book()
+# h2.input_info('Дон', '1960', 'Москва', 'Фантастика', 'Иванов', '100руб')
+# h2.print_info()
+# h2.set_name('Волга')
+# print(h2.get_name())
+
+# class Robot:
+#     k = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         print('Инициализация робота:', self.name)
+#         Robot.k += 1
+#
+#     def __del__(self):
+#         print(self.name, 'Выключается!')
+#         Robot.k -= 1
+#         if Robot.k == 0:
+#             print(self.name, 'был последним')
+#         else:
+#             print('Осталось :', Robot.k)
+#
+#     def say_hi(self):
+#         print('Приветствую! Меня зовут:', self.name)
+#
+#
+# r1 = Robot('R2-D2')
+# r1.say_hi()
+# print('Численность роботов:', Robot.k)
+# r2 = Robot('C-3PO')
+# r2.say_hi()
+# print('Численность роботов:', Robot.k)
+#
+# print('\nЗдесь роботы проделывают работу\n')
+# print('Роботы закончили работу.Давайте их выключим')
+# del r1
+# del r2
+# print('Численность роботов:', Robot.k)
+
+# class Car:
+#     def __init__(self, name, year, model, power, color, price):
+#         self.name = self.model = self.color = 'Некорректные данные'
+#         self.year = self.power = self.price = 0
+#         if Car.__check_value_str(name):
+#             self.name = name
+#             self.model = model
+#             self.color = color
+#         if Car.__check_value_int(year):
+#             self.year = year
+#             self.power = power
+#             self.price = price
+#
+#     def __check_value_int(s):
+#         if not isinstance(s, int | float):
+#             print('Данные должны быть числом')
+#             return False
+#         return True
+#
+#     def __check_value_str(s):
+#         if not isinstance(s, str):
+#             print('Данные должны быть строкой')
+#             return False
+#         return True
+#
+#     def set_name(self, name):
+#         if Car.__check_value_str(name):
+#             self.name = name
+#
+#     def get_name(self):
+#         return self.name
+#
+#     def print_info(self):
+#         print('Данные автомобиля'.center(40, '*'))
+#         print(f"""Название модели: {self.name}
+# Год выпуска: {self.year}
+# Производитель: {self.model}
+# Мощность двигателя: {self.power} л.с.
+# Цвет машины: {self.color}
+# Цена: {self.price}""")
+#         print(40 * '=')
+#
+#
+# c1 = Car('X7 M50i', '2021', 'BMW', 530, 'white', 10790000)
+# c1.print_info()
+# c1.set_name(122)
+# print(c1.get_name())
+# c1.print_info()
+# import math
+#
+#
+# class Rectangle:
+#
+#     def __init__(self, length, width):
+#         if Rectangle.__check_value_int(length):
+#             self.length = length
+#         if Rectangle.__check_value_int(width):
+#             self.width = width
+#
+#     def __check_value_int(s):
+#         if not isinstance(s, int):
+#             print('Данные должны быть числом')
+#             return False
+#         return True
+#
+#     def set_length(self, length):
+#         if Rectangle.__check_value_int(length):
+#             self.length = length
+#
+#     def set_width(self, width):
+#         if Rectangle.__check_value_int(width):
+#             self.width = width
+#
+#     def get_length(self):
+#         return self.length
+#
+#     def get_width(self):
+#         return self.width
+#
+#     def area(self):
+#         return self.length * self.width
+#
+#     def perimeter(self):
+#         return self.length * 2 + self.width * 2
+#
+#     def hypotenuse(self):
+#         return round(math.sqrt(self.length ** 2 + self.width ** 2), 2)
+#
+#     def picture(self):
+#         print(('*' * self.width + '\n') * self.length)
+#
+#
+# r1 = Rectangle(3, 9)
+# print('Длина прямоугольника:', r1.get_length())
+# print('Ширина прямоугольника:', r1.get_width())
+# print('Площадь прямоугольника:', r1.area())
+# print('Периметр прямоугольника:', r1.perimeter())
+# print('Гипотенуза прямоугольника:', r1.hypotenuse())
+# r1.picture()
+# class Person:
+#
+#     def __init__(self, name, age):
+#         self.__name = name
+#         self.__age = age
+#
+#     @property
+#     def coord(self):
+#         return self.__name
+#
+#     @property
+#     def coord_age(self):
+#         return self.__age
+#
+#     @coord.setter
+#     def coord(self, name):
+#         self.__name = name
+#
+#     @coord_age.setter
+#     def coord_age(self, age):
+#         self.__age = age
+#
+#     @coord.deleter
+#     def coord(self):
+#         del self.__name
+#
+#     @coord_age.deleter
+#     def coord_age(self):
+#         del self.__age
+#
+#
+# p1 = Person('Irina', 26)
+# print(p1.__dict__)
+# p1.coord = 'Igor'
+# p1.coord_age = 31
+# print(p1.__dict__)
+# del p1.coord_age
+# print(p1.__dict__)
+
+# class Numbers:
+#
+#     @staticmethod
+#     def minimum(a, b, c, d):
+#         n = min(a, b, c, d)
+#         return n
+#
+#     @staticmethod
+#     def max(a, b, c, d):
+#         m = max(a, b, c, d)
+#         return m
+#
+#     @staticmethod
+#     def sr(a, b, c, d):
+#         k = (a + b + c + d) / 4
+#         return k
+#
+#     @staticmethod
+#     def num(a):
+#         n = 1
+#         for i in range(1, a + 1):
+#             n *= i
+#         return n
+#
+#
+# print('Минимальное число: ', Numbers.minimum(4, 5, 6, 7))
+# print('Максимальное число: ', Numbers.max(4, 5, 6, 7))
+# print('Среднее число: ', Numbers.sr(4, 5, 6, 7))
+# print('Факториал: ', Numbers.num(5))
+
+# import sqlite3 as sq
+
+# with sq.connect('users.db') as con:
+#     cur = con.cursor()
+# cur.execute("""
+# CREATE TABLE IF NOT EXISTS person(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT NOT NULL,
+# phone BLOB NOT NULL DEFAULT +79090000000,
+# age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+# email TEXT UNIQUE
+# )
+# """)
+# cur.execute("""
+# ALTER TABLE person
+# RENAME TO prson_table
+# """)
+# cur.execute("""
+#     ALTER TABLE prson_table
+#     ADD COLUMN address TEXT
+#     """)
+# cur.execute("""
+#         ALTER TABLE prson_table
+#         RENAME COLUMN address TO home_address
+#         """)
+
+# with sq.connect('users.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#         CREATE TABLE IF NOT EXISTS person(
+#         id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         name TEXT NOT NULL,
+#         phone BLOB NOT NULL DEFAULT +79090000000,
+#         age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+#         email TEXT UNIQUE
+#         )
+#         """)
+#     cur.execute("""
+#         INSERT INTO person
+#         VALUES(1, 'Ирина', '+7509866666', 23, 'irina@gmail.ru')
+#         """)
+import sqlite3 as sq
 
 
-
-
+# with sq.connect('db_4.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#         SELECT *
+#         FROM Ware
+#         ORDER BY Price DESC
+#         LIMIT 5 OFFSET 2
+#         """)
+#     res = cur.fetchone()
+#     res2 = cur.fetchmany(2)
+#     print(res)
+#     print(res2)
 

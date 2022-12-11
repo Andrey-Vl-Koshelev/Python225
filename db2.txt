@@ -25,7 +25,9 @@ SELECT NAME
 FROM ZAKAZ
 WHERE RATING > 380
 5. Определите тех заказчиков в ремарках, о которых ничего не сказано.
-NULL
+SELECT NAME
+FROM ZAKAZ
+WHERE REM IS NULL
 6. Выведите коды тех продавцов, которые имеют сумму заказа более 4000.
 SELECT KOD
 FROM ZAKAZ
@@ -54,7 +56,9 @@ SELECT NAME, Prod
 FROM ZAKAZ
 WHERE Prod='столы обеденные' 
 12. Вывести фамилии заказчиков, в состав которых входит две буквы а и более.
-NULL
+SELECT NAME
+FROM ZAKAZ
+WHERE NAME GLOB '*[Аа]*а*'
 13. Определите коды тех продавцов, фамилии заказчиков которых начинаются на К (вывести фамилию заказчика и номер продавца).
 SELECT NAME, KOD
 FROM ZAKAZ
