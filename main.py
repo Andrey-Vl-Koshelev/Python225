@@ -3209,3 +3209,355 @@ import sqlite3 as sq
 #     print(res)
 #     print(res2)
 
+# class Convert:
+#     def __init__(self, heft=0):
+#         self.__heft = heft
+#
+#     @property
+#     def heft(self):
+#         return self.__heft
+#
+#     @heft.setter
+#     def heft(self, heft):
+#         if isinstance(heft, int | float):
+#             self.__heft = heft
+#         else:
+#             print('Данные должны быть цифрой')
+#
+#     def res(self):
+#         m = round(self.__heft * 2.205,2)
+#         return f'{self.__heft} кг => {m} фунтов'
+#
+#
+# c1 = Convert(12)
+# print(c1.heft)
+# print(c1.res())
+# c1.heft = '41'
+# print(c1.res())
+
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eur = 'EUR'
+#
+#     def __init__(self, num, surname, percent, value=0):
+#         self.num = num
+#         self.surname = surname
+#         self.percent = percent
+#         self.value = value
+#         print(f'Счет #{self.num} принадлежащий {self.surname} был открыт.')
+#         print('*' * 50)
+#
+#     def __del__(self):
+#         print('*' * 50)
+#         print(f'Счет #{self.num} принадлежащий {self.surname} был закрыт.')
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):
+#         cls.rate_eur = rate
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     def edit_owner(self, surname):
+#         self.surname = surname
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.value, Account.rate_usd)
+#         print(f'Состояние счета: {usd_val} {Account.suffix_usd}.')
+#
+#     def convert_to_eur(self):
+#         eur_val = Account.convert(self.value, Account.rate_eur)
+#         print(f'Состояние счета: {eur_val} {Account.suffix_eur}.')
+#
+#     def print_balance(self):
+#         print(f'Текущий баланс {self.value} {Account.suffix}')
+#
+#     def print_info(self):
+#         print(f'Информация о счете: ')
+#         print('-' * 20)
+#         print(f'#{self.num}')
+#         print(f'Владелец: {self.surname}')
+#         self.print_balance()
+#         print(f'Проценты: {self.percent:.0%}')
+#         print('-' * 20)
+#
+#     def add_percents(self):
+#         self.value += self.value * self.percent
+#         print('Проценты были успешно начислены')
+#         self.print_balance()
+#
+#     def withdraw_money(self, val):
+#         if self.value < val:
+#             print(f'К сожалению у вас нет {val} {Account.suffix}')
+#         else:
+#             self.value -= val
+#             print(f'{val} {Account.suffix} было успешно снято!')
+#         self.print_balance()
+#
+#     def add_money(self, val):
+#         self.value += val
+#         print(f'{val} {Account.suffix} было успешно добавлено!')
+#         self.print_balance()
+#
+#
+# a1 = Account('12345', 'Долгих', 0.03, 1000)
+# a1.print_info()
+# a1.convert_to_usd()
+# a1.convert_to_eur()
+# print()
+# Account.set_usd_rate(2)
+# a1.convert_to_usd()
+# Account.set_eur_rate(3)
+# a1.convert_to_eur()
+# print()
+# a1.edit_owner('Дюма')
+# a1.print_info()
+# print()
+# a1.add_percents()
+# print()
+# a1.withdraw_money(100)
+# print()
+# a1.add_money(5000)
+# print()
+# a1.withdraw_money(3000)
+# print()
+# import re
+#
+#
+# class UserData:
+#     def __init__(self, fio, old, ps, weight):
+#         self.verify_fio(fio)
+#         self.verify_old(old)
+#         self.verify_ps(ps)
+#         self.verify_weight(weight)
+#
+#         self.fio = fio
+#         self.old = old
+#         self.password = ps
+#         self.weight = weight
+#
+#     @classmethod
+#     def verify_fio(cls, fio):
+#         if not isinstance(fio, str):
+#             raise TypeError('ФИО должно быть строкой')
+#         f = fio.split()
+#         if len(f) != 3:
+#             raise TypeError('Не верный формат ФИО')
+#         letters = ''.join(re.findall(r'[a-zа-яё-]', fio, flags=re.IGNORECASE))
+#         for i in f:
+#             if len(i.strip(letters)) != 0:
+#                 raise TypeError('В ФИО можно использовать только буквы и дефис')
+#
+#     @classmethod
+#     def verify_old(cls, old):
+#         if not isinstance(old, int) or old < 14 or old > 120:
+#             raise TypeError('Возраст должен быть числом в диапазоне от 14 до 120 лет')
+#
+#     @classmethod
+#     def verify_weight(cls, w):
+#         if not isinstance(w, float) or w < 20:
+#             raise TypeError('Вес от 20 кг и выше')
+#
+#     @classmethod
+#     def verify_ps(cls, ps):
+#         if not isinstance(ps, str):
+#             raise TypeError('Паспорт должен быть строкой')
+#         s = ps.split()
+#         if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+#             raise TypeError('Не верный формат паспорта')
+#         for i in s:
+#             if not i.isdigit():
+#                 raise TypeError('Серия и номер должны быть цифрами')
+#
+#     @property
+#     def fio(self):
+#         return self.__fio
+#
+#     @fio.setter
+#     def fio(self, fio):
+#         self.verify_fio(fio)
+#         self.__fio = fio
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, old):
+#         self.verify_old(old)
+#         self.__old = old
+#
+#     @property
+#     def password(self):
+#         return self.__password
+#
+#     @password.setter
+#     def password(self, ps):
+#         self.verify_ps(ps)
+#         self.__password = ps
+#
+#     @property
+#     def weight(self):
+#         return self.__weight
+#
+#     @weight.setter
+#     def weight(self, w):
+#         self.verify_weight(w)
+#         self.__weight = w
+#
+#
+# p1 = UserData('Волков Игорь Николаевич', 26, '1234 567890', 80.8)
+# p1.fio = 'Петров Игорь Николаевич'
+# print(p1.fio)
+# print(p1.__dict__)
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eur = 'EUR'
+#
+#     def __init__(self, num, surname, percent, value=0):
+#         self.__num = num
+#         self.__surname = surname
+#         self.__percent = percent
+#         self.__value = value
+#         print(f'Счет #{self.num} принадлежащий {self.surname} был открыт.')
+#         print('*' * 50)
+#
+#     def __del__(self):
+#         print('*' * 50)
+#         print(f'Счет #{self.num} принадлежащий {self.surname} был закрыт.')
+#
+#     @property
+#     def num(self):
+#         return self.__num
+#
+#     @num.setter
+#     def num(self, num):
+#         self.__num = num
+#
+#     @property
+#     def surname(self):
+#         return self.__surname
+#
+#     @surname.setter
+#     def surname(self, surname):
+#         self.__surname = surname
+#
+#     @property
+#     def percent(self):
+#         return self.__percent
+#
+#     @percent.setter
+#     def percent(self, percent):
+#         self.__percent = percent
+#
+#     @property
+#     def value(self):
+#         return self.__value
+#
+#     @value.setter
+#     def value(self, value):
+#         self.__value = value
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):
+#         cls.rate_eur = rate
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     def edit_owner(self, surname):
+#         self.surname = surname
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.value, Account.rate_usd)
+#         print(f'Состояние счета: {usd_val} {Account.suffix_usd}.')
+#
+#     def convert_to_eur(self):
+#         eur_val = Account.convert(self.value, Account.rate_eur)
+#         print(f'Состояние счета: {eur_val} {Account.suffix_eur}.')
+#
+#     def print_balance(self):
+#         print(f'Текущий баланс {self.value} {Account.suffix}')
+#
+#     def print_info(self):
+#         print(f'Информация о счете: ')
+#         print('-' * 20)
+#         print(f'#{self.num}')
+#         print(f'Владелец: {self.surname}')
+#         self.print_balance()
+#         print(f'Проценты: {self.percent:.0%}')
+#         print('-' * 20)
+#
+#     def add_percents(self):
+#         self.value += self.value * self.percent
+#         print('Проценты были успешно начислены')
+#         self.print_balance()
+#
+#     def withdraw_money(self, val):
+#         if self.value < val:
+#             print(f'К сожалению у вас нет {val} {Account.suffix}')
+#         else:
+#             self.value -= val
+#             print(f'{val} {Account.suffix} было успешно снято!')
+#         self.print_balance()
+#
+#     def add_money(self, val):
+#         self.value += val
+#         print(f'{val} {Account.suffix} было успешно добавлено!')
+#         self.print_balance()
+#
+#
+# a1 = Account('12345', 'Долгих', 0.03, 1000)
+# a1.print_info()
+# a1.convert_to_usd()
+# a1.convert_to_eur()
+# print()
+# Account.set_usd_rate(2)
+# a1.convert_to_usd()
+# Account.set_eur_rate(3)
+# a1.convert_to_eur()
+# print()
+# a1.edit_owner('Дюма')
+# a1.print_info()
+# print()
+# a1.add_percents()
+# print()
+# a1.withdraw_money(100)
+# print()
+# a1.add_money(4000)
+# print()
+# a1.withdraw_money(3000)
+# print()
+
+# def queue_time(customers, n):
+#     tills = [0] * n
+#     for i in customers:
+#         tills[0] += i
+#         tills.sort()
+#     return max(tills)
+#
+#
+# print(queue_time([], 1))
+# print(queue_time([5], 1))
+# print(queue_time([2], 5))
+# print(queue_time([1, 2, 3, 4, 5], 1))
+# print(queue_time([1, 2, 3, 4, 5], 100))
+# print(queue_time([2, 2, 3, 3, 4, 4], 2))
+
+
