@@ -3560,4 +3560,3 @@ import sqlite3 as sq
 # print(queue_time([1, 2, 3, 4, 5], 100))
 # print(queue_time([2, 2, 3, 3, 4, 4], 2))
 
-
