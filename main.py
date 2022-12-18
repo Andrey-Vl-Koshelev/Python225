@@ -3195,7 +3195,6 @@ import math
 #         """)
 import sqlite3 as sq
 
-
 # with sq.connect('db_4.db') as con:
 #     cur = con.cursor()
 #     cur.execute("""
@@ -3560,3 +3559,71 @@ import sqlite3 as sq
 # print(queue_time([1, 2, 3, 4, 5], 100))
 # print(queue_time([2, 2, 3, 3, 4, 4], 2))
 
+import sqlite3 as sg
+
+# cars = [
+#     ('BMW', 54000),
+#     ('Chevrolet', 50000),
+#     ('Daewoo', 56000),
+#     ('Citroen', 57000),
+#     ('Honda', 58000)
+# ]
+# con = None
+# try:
+#     con = sg.connect('cars.db')
+#     cur = con.cursor()
+#     cur.executescript("""
+#         CREATE TABLE IF NOT EXISTS cars(
+#         cars_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         model TEXT, price INTEGER);
+#     BEGIN;
+#     INSERT INTO cars VALUES(NULL, "Renault", 22000);
+#     UPDATE cars SET price = price + 100;
+#     """)
+#     con.commit()
+# except sg.Error as e:
+#     if con:
+#         con.rollback()
+#     print('Ошибка запроса')
+# finally:
+#     if con:
+#         con.close()
+
+# with sg.connect('cars.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     CREATE TABLE IF NOT EXISTS cars(
+#     cars_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     model TEXT, price INTEGER)
+#
+#     """)
+#
+#     cur.executescript("""
+#     DELETE FROM cars WHERE model LIKE 'B%';
+#     UPDATE cars SET price = price + 100;
+#     """)
+# cur.execute("UPDATE cars SET price = :Price WHERE model LIKE'B%'", {'Price': 0})
+# cur.executemany("INSERT INTO cars VALUES(NULL,?,?)", cars)
+# for car in cars:
+#     cur.execute("INSERT INTO cars VALUES(NULL,?,?)", car)
+# cur.execute('INSERT INTO cars VALUES(1, "Renault", 22000)')
+# cur.execute('INSERT INTO cars VALUES(2, "Volvo", 29000)')
+# cur.execute('INSERT INTO cars VALUES(3, "Mercedes", 52000)')
+# cur.execute('INSERT INTO cars VALUES(4, "Bentley", 59000)')
+# cur.execute('INSERT INTO cars VALUES(5, "Audy", 62000)')
+
+# with sg.connect('db/cars.db') as con:
+#     cur = con.cursor()
+#     cur.executescript("""
+#     CREATE TABLE IF NOT EXISTS cars(
+#     cars_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     model TEXT, price INTEGER);
+#     CREATE TABLE IF NOT EXISTS cost(
+#         name TEXT, tr_in INTEGER, buy INTEGER
+#     )
+#     """)
+#
+#     cur.execute("INSERT INTO cars VALUES(NULL,'Запорожец', 1000)")
+#     last_row_id = cur.lastrowid  # это id последней записи
+#     buy_car_id = 2
+#     cur.execute("INSERT INTO cost VALUES('Илья',?,?)", (last_row_id, buy_car_id))
