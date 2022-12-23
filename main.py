@@ -1,7 +1,7 @@
 # import main
-import re
-
-from car import electrocar
+# import re
+#
+# from car import electrocar
 
 # def main():
 #     e_car = electrocar.ElectroCar('Tesla', 'T', 2018, 99000)
@@ -104,36 +104,36 @@ from car import electrocar
 # p2.add_skill(2)
 
 # class Robot:
-# #     k = 0
-# #
-# #     def __init__(self, name):
-# #         self.name = name
-# #         print('Инициализация робота: ', self.name)
-# #         Robot.k += 1
-# #
-# #     def __del__(self):
-# #         print(self.name, 'выключается')
-# #         Robot.k -= 1
-# #         if Robot.k == 0:
-# #             print(self.name, 'был последним')
-# #         else:
-# #             print('Работающих роботов осталось:', Robot.k)
-# #
-# #     def say_hi(self):
-# #         print('Приветствую! Меня зовут:', self.name)
-# #
-# # droid1 = Robot('R2_D2')
-# # droid1.say_hi()
-# # print('Численность роботов:', Robot.k)
-# #
-# # droid2 = Robot('C-3PO')
-# # droid2.say_hi()
-# # print('Численность роботов:', Robot.k)
-# # print('\nЗдесь роботы делают работу\n')
-# # print('Роботы закончили работу')
-# # del droid1
-# # del droid2
-# # print('Численность роботов:', Robot.k)
+#     k = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         print('Инициализация робота: ', self.name)
+#         Robot.k += 1
+#
+#     def __del__(self):
+#         print(self.name, 'выключается')
+#         Robot.k -= 1
+#         if Robot.k == 0:
+#             print(self.name, 'был последним')
+#         else:
+#             print('Работающих роботов осталось:', Robot.k)
+#
+#     def say_hi(self):
+#         print('Приветствую! Меня зовут:', self.name)
+#
+# droid1 = Robot('R2_D2')
+# droid1.say_hi()
+# print('Численность роботов:', Robot.k)
+#
+# droid2 = Robot('C-3PO')
+# droid2.say_hi()
+# print('Численность роботов:', Robot.k)
+# print('\nЗдесь роботы делают работу\n')
+# print('Роботы закончили работу')
+# del droid1
+# del droid2
+# print('Численность роботов:', Robot.k)
 
 
 # class Car:
@@ -454,36 +454,36 @@ from car import electrocar
 
 
 # import math
-# #
-# #
-# # class Table:
-# #     def __init__(self, width=None, length=None, radius=None):
-# #         if radius is None:
-# #             self._width = width
-# #             self._length = length
-# #         else:
-# #             self._radius = radius
-# #
-# #     def calc_area(self):
-# #         raise NotImplementedError('В дочернем классе должен быть определен метод calc_area')
-# #
-# #
-# # class SqTable(Table):
-# #     def calc_area(self):
-# #         return self._width * self._length
-# #
-# #
-# # class RoundTable(Table):
-# #     def calc_area(self):
-# #         return round(math.pi * self._radius ** 2, 2)
-# #
-# #
-# # t = SqTable(20, 10)
-# # print(t.__dict__)
-# # print(t.calc_area())
-# # t2 = RoundTable(radius=20)
-# # print(t2.__dict__)
-# # print(t2.calc_area())
+#
+#
+# class Table:
+#     def __init__(self, width=None, length=None, radius=None):
+#         if radius is None:
+#             self._width = width
+#             self._length = length
+#         else:
+#             self._radius = radius
+#
+#     def calc_area(self):
+#         raise NotImplementedError('В дочернем классе должен быть определен метод calc_area')
+#
+#
+# class SqTable(Table):
+#     def calc_area(self):
+#         return self._width * self._length
+#
+#
+# class RoundTable(Table):
+#     def calc_area(self):
+#         return round(math.pi * self._radius ** 2, 2)
+#
+#
+# t = SqTable(20, 10)
+# print(t.__dict__)
+# print(t.calc_area())
+# t2 = RoundTable(radius=20)
+# print(t2.__dict__)
+# print(t2.calc_area())
 
 # from abc import ABC, abstractmethod
 #
@@ -1420,13 +1420,7 @@ from car import electrocar
 #
 # todos_by_user = {}
 #
-# for todo in todos:
-#     if todo['completed']:
-#         try:
-#             todos_by_user[todo['userId']] += 1
-#         except KeyError:
-#             todos_by_user[todo['userId']] = 1
-# print(todos_by_user)
+
 #
 # top_users = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)
 # print(top_users)
@@ -1443,10 +1437,7 @@ from car import electrocar
 # print(f'user{s} {max_users} completed {max_complete} TODOs')
 #
 #
-# def keep(todo):
-#     is_complete = todo['completed']
-#     has_max_count = str(todo['userId']) in users
-#     return is_complete and has_max_count
+
 #
 #
 # with open('filtered_file.json', 'w') as data_file:
@@ -1457,7 +1448,7 @@ from car import electrocar
 #     data = json.load(fw)
 #     print(data)
 
-import csv
+# import csv
 
 # with open('data.csv') as r_file:
 #     file_reader = csv.reader(r_file, delimiter=';')
@@ -1505,32 +1496,32 @@ import csv
 #     file_writer.writerow(({'Имя': 'Саша', 'Возраст': '7'}))
 
 # data = [{
-# #     'hostname': 'sw1',
-# #     'location': 'London',
-# #     'model': '3750',
-# #     'vendor': 'Cisco'
-# # }, {
-# #     'hostname': 'sw2',
-# #     'location': 'Liverpool',
-# #     'model': '3850',
-# #     'vendor': 'Cisco'
-# # }, {
-# #     'hostname': 'sw3',
-# #     'location': 'Liverpool',
-# #     'model': '3650',
-# #     'vendor': 'Cisco'
-# # }, {
-# #     'hostname': 'sw4',
-# #     'location': 'London',
-# #     'model': '3650',
-# #     'vendor': 'Cisco'
-# # }]
-# #
-# # with open('dictwriter.csv', 'w') as f:
-# #     writer = csv.DictWriter(f, fieldnames=list(data[0].keys()))
-# #     writer.writeheader()
-# #     for d in data:
-# #         writer.writerow(d)
+#     'hostname': 'sw1',
+#     'location': 'London',
+#     'model': '3750',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw2',
+#     'location': 'Liverpool',
+#     'model': '3850',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw3',
+#     'location': 'Liverpool',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw4',
+#     'location': 'London',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }]
+#
+# with open('dictwriter.csv', 'w') as f:
+#     writer = csv.DictWriter(f, fieldnames=list(data[0].keys()))
+#     writer.writeheader()
+#     for d in data:
+#         writer.writerow(d)
 
 # import requests
 # import csv
@@ -1694,7 +1685,7 @@ import csv
 # if __name__ == '__main__':
 #     main()
 
-import random as r
+# import random as r
 
 # a = [r.randint(0, 100) for i in range(10)]
 # n = max(a)
@@ -1840,7 +1831,7 @@ import random as r
 # print(fun(38271, False))
 # print(fun(123456789, False))
 
-import math
+# import math
 
 # def fun(n):
 #     if n == 1:
@@ -2519,9 +2510,9 @@ import math
 # if __name__ == '__main__':
 #     main()
 
-from bs4 import BeautifulSoup
-import requests
-import csv
+# from bs4 import BeautifulSoup
+# import requests
+# import csv
 
 # from parse import Parser
 #
@@ -2642,9 +2633,9 @@ import csv
 # print('Результат : ',return_num(5))
 
 # s = 'Test string for me'
-# # n = []
-# # for i in s:
-# #     n.append(ord(i))
+# n = []
+# for i in s:
+#     n.append(ord(i))
 # n = [ord(x) for x in s]
 # print('ASCII коды:', n)
 # n = [int(sum(n) / len(n))] + n
@@ -2778,10 +2769,10 @@ import csv
 # print(f.readline())
 # print(f.readlines())
 
-# # print(f.closed)
-# # print(f.mode)
-# # print(f.name)
-# # print(f.encoding)
+# print(f.closed)
+# print(f.mode)
+# print(f.name)
+# print(f.encoding)
 # f.close()
 # f = open(r'C:\Users\User\Desktop\ДЗ по курсу PYTHON\ДЗ_Python225\text.txt', 'r')
 # try:
@@ -2853,7 +2844,7 @@ import csv
 #     line += 1
 # print(line, ' строк')
 # f.close()
-import os
+# import os
 
 # print('Текущая директория:', os.getcwd())
 # # print(os.listdir())
@@ -2873,7 +2864,7 @@ import os
 #     # summa REAL,
 #     # data TEXT
 #     # )""")
-import math
+# import math
 
 # class Human:
 #     name = 'name'
@@ -3193,7 +3184,7 @@ import math
 #         INSERT INTO person
 #         VALUES(1, 'Ирина', '+7509866666', 23, 'irina@gmail.ru')
 #         """)
-import sqlite3 as sq
+# import sqlite3 as sq
 
 # with sq.connect('db_4.db') as con:
 #     cur = con.cursor()
@@ -3559,7 +3550,117 @@ import sqlite3 as sq
 # print(queue_time([1, 2, 3, 4, 5], 100))
 # print(queue_time([2, 2, 3, 3, 4, 4], 2))
 
-import sqlite3 as sg
+# import math
+#
+#
+# class Table:
+#     def __init__(self, width=None, length=None, radius=None):
+#         if radius is None:
+#             # self._width = width
+#             # self._length = length
+#             if length is None:
+#                 self._width = self._length = width
+#             else:
+#                 self._width = width
+#                 self._length = length
+#         else:
+#             self._radius = radius
+#
+#     def calc_area(self):  # абстрактный метод
+#         raise NotImplementedError('В дочернем классе должен быть метод calc_area()')
+#
+#
+# class SqTable(Table):
+#     def calc_area(self):
+#         return self._width * self._length
+#
+#
+# class RoundTable(Table):
+#     def calc_area(self):
+#         return round(math.pi * self._radius ** 2, 2)
+#
+#
+# t = SqTable(20, 10)
+# print(t.__dict__)
+# print(t.calc_area())
+#
+# t1 = SqTable(20)
+# print(t1.__dict__)
+# print(t1.calc_area())
+#
+# t2 = RoundTable(radius=30)
+# print(t2.__dict__)
+# print(t2.calc_area())
+
+# class Liquid:
+#     def __init__(self, name, density):
+#         self.name = name
+#         self.density = density
+#
+#     def edit_density(self, val):
+#         self.density = val
+#
+#     def calc_v(self, m):
+#         v = m / self.density
+#         print(f"Объем {m} кг {self.name} равен {v} m^3")
+#
+#     def calc_m(self, v):
+#         m = v * self.density
+#         print(f"Вес {v} m^3 of {self.name} составляет {m} кг.")
+#
+#     def print_info(self):
+#         print(f"Жидкость '{self.name}' (плотность = {self.density} kg/m^3).")
+#
+#
+# class Alcohol(Liquid):
+#     def __init__(self, name, density, strength):
+#         super().__init__(name, density)
+#         self.strength = strength
+#
+#     def edit_strength(self, val):
+#         self.strength = val
+#
+#
+# a = Alcohol('Wine', 1064.2, 14)
+# a.print_info()
+#
+# a.edit_density(1000)
+# a.print_info()
+#
+# a.calc_v(300)
+# a.calc_m(0.5)
+#
+# print(a.strength)
+# a.edit_strength(20)
+# print(a.strength)
+
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+#         self.computer = self.Computer()
+#
+#     def print_info(self):
+#         print(f'{self.name} => ', end='')
+#         self.computer.print_info()
+#
+#     class Computer:
+#         def __init__(self):
+#             self.model = 'HP'
+#             self.cpu = 'i7'
+#             self.memory = 16
+#
+#         def print_info(self):
+#             print(f' {self.model}, {self.cpu}, {self.memory}')
+#
+#
+# s = Student('Roman')
+# s.print_info()
+# s = Student('Vladimir')
+# s.print_info()
+# from math import sqrt
+
+
+# import sqlite3 as sg
 
 # cars = [
 #     ('BMW', 54000),
@@ -3627,3 +3728,6 @@ import sqlite3 as sg
 #     last_row_id = cur.lastrowid  # это id последней записи
 #     buy_car_id = 2
 #     cur.execute("INSERT INTO cost VALUES('Илья',?,?)", (last_row_id, buy_car_id))
+
+
+

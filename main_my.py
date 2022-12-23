@@ -1111,7 +1111,7 @@
 # print("Произведение ненулевых элементов: ", m)
 
 
-import geometry
+# import geometry
 
 # num1 = geometry.sqrt(16)
 # num2 = geometry.ceil(3.2)
