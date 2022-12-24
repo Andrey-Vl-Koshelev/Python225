@@ -26,6 +26,26 @@ FROM Klient k RIGHT JOIN Prodaves p
 ON k.ID_Pr=p.ID_Pr
 2 Вывести имя заказчика и данные о средней цене доставки для него. Если цена доставки
 больше средней по таблице написать - lot, меньше – few
+SELECT k.Name_KL, AVG(z.Cena_Dostavki), 'few'
+
+FROM Klient k, Zakaz z
+WHERE k.ID_KL=z.ID_KL
+GROUP BY k.Name_KL
+HAVING AVG(z.Cena_Dostavki) >=
+(SELECT AVG(z.Cena_Dostavki)
+FROM Zakaz z)
+
+UNION
+
+SELECT k.Name_KL, AVG(z.Cena_Dostavki), 'lot'
+FROM Klient k, Zakaz z
+WHERE k.ID_KL=z.ID_KL
+GROUP BY k.Name_KL
+HAVING AVG(z.Cena_Dostavki) >=
+(SELECT AVG(z.Cena_Dostavki)
+FROM Zakaz z)
+
+
 SELECT z.Cena_Dostavki, 'lot' as 'Рейтинг',
 (SELECT k.Name_KL
 FROM Klient k

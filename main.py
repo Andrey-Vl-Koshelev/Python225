@@ -3660,8 +3660,8 @@
 # from math import sqrt
 
 
-# import sqlite3 as sg
-
+# import sqlite3 as sq
+#
 # cars = [
 #     ('BMW', 54000),
 #     ('Chevrolet', 50000),
@@ -3671,7 +3671,7 @@
 # ]
 # con = None
 # try:
-#     con = sg.connect('cars.db')
+#     con = sq.connect('cars.db')
 #     cur = con.cursor()
 #     cur.executescript("""
 #         CREATE TABLE IF NOT EXISTS cars(
@@ -3682,15 +3682,15 @@
 #     UPDATE cars SET price = price + 100;
 #     """)
 #     con.commit()
-# except sg.Error as e:
+# except sq.Error as e:
 #     if con:
 #         con.rollback()
 #     print('Ошибка запроса')
 # finally:
 #     if con:
 #         con.close()
-
-# with sg.connect('cars.db') as con:
+#
+# with sq.connect('cars.db') as con:
 #     cur = con.cursor()
 #     cur.execute("""
 #     CREATE TABLE IF NOT EXISTS cars(
@@ -3712,8 +3712,8 @@
 # cur.execute('INSERT INTO cars VALUES(3, "Mercedes", 52000)')
 # cur.execute('INSERT INTO cars VALUES(4, "Bentley", 59000)')
 # cur.execute('INSERT INTO cars VALUES(5, "Audy", 62000)')
-
-# with sg.connect('db/cars.db') as con:
+#
+# with sq.connect('db/cars.db') as con:
 #     cur = con.cursor()
 #     cur.executescript("""
 #     CREATE TABLE IF NOT EXISTS cars(
@@ -3729,5 +3729,103 @@
 #     buy_car_id = 2
 #     cur.execute("INSERT INTO cost VALUES('Илья',?,?)", (last_row_id, buy_car_id))
 
+# import sqlite3 as sq
+#
+#
+# def read_ava(n):
+#     try:
+#         with open(f'avatars/avatars/{n}.png', 'rb') as f:
+#             return f.read()
+#     except IOError as e:
+#         print(e)
+#         return False
+#
+#
+# def write_ava(name, data):
+#     try:
+#         with open(name, "wb") as f:
+#             f.write(data)
+#     except IOError as e:
+#         print(e)
+#         return False
+#     return True
+#
+#
+# with sq.connect('cars.db') as con:
+#     con.row_factory = sq.Row
+#     # print(con.row_factory)
+#     cur = con.cursor()
+#     cur.executescript("""
+#     CREATE TABLE IF NOT EXISTS users(
+#         name Text,
+#         ava BLOB,
+#         score INTEGER)
+#
+#     """)
+#
+#     cur.execute('SELECT ava FROM users LIMIT 1')
+#     img = cur.fetchone()['ava']
+#     write_ava('out.png', img)
 
+# img = read_ava(1)
+# if img:
+#     binary = sq.Binary(img)
+#     cur.execute('INSERT INTO users VALUES ("Илья", ?, 1000)', (binary,))
+# cur.execute('SELECT model, price FROM cars')
+# rows = cur.fetchall()
+# print(rows)
+# rows = cur.fetchmany(5)
+# print(rows)
+# for res in cur:
+#     print(res['model'], -  res['price'])
+# import sqlite3 as sq
+#
+# with sq.connect('cars.db') as con:
+#     cur = con.cursor()
 
+# with open('sql_dump.sql', 'w') as f:
+#     for sql in con.iterdump():
+#         f.write(sql)
+# with open('sql_dump.sql', 'r') as f:
+#     sql = f.read()
+#     cur.executescript(sql)
+# import sqlite3 as sq
+#
+# data = [('car', 'машина'), ('house', 'дом'), ('tree', 'дерево')]
+# con = sq.connect(':memory:')
+# with con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     CREATE TABLE IF NOT EXISTS dict(
+#     eng TEXT,
+#     ru TEXT)""")
+#     cur.executemany('INSERT INTO dict VALUES(?, ?)', data)
+#     cur.execute('SELECT ru FROM dict WHERE eng LIKE "c%"')
+#     print(cur.fetchall())
+
+import sqlite3 as sq
+
+text = [
+    ('Вишня', 2000, 2),
+    ('Слива', 3000, 1),
+    ('Яблоня', 1500, 3),
+]
+
+with sq.connect('db/garden.db') as gar:
+    cur = gar.cursor()
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS garden(
+    garden_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    price INTEGER,
+    year INTEGER)
+    """)
+
+    cur.executescript("""
+    DELETE FROM garden WHERE garden_id > 4;
+    UPDATE garden SET price = price + 200
+    """)
+    # cur.execute('INSERT INTO garden VALUES(1, "груша", 2500, 2)')
+    # cur.executemany('INSERT INTO garden VALUES(NULL, ?, ?, ?)', text)
+    # for i in text:
+    #     cur.execute('INSERT INTO garden VALUES(NULL,?,?,?)', i)
