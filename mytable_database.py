@@ -3,6 +3,7 @@ from faker import Faker
 from mytables.my_database import create_db, Session
 from mytables.name import Name
 from mytables.number import Number
+from mytables.lesson import Lesson
 
 
 def mytable_database(load_fake_data=True):
@@ -19,10 +20,12 @@ def _load_fake_data(session):
     group2 = Number(group_name='WELL-222')
     session.add(group1)
     session.add(group2)
-    lesson = Number.lesson_title
 
-    for it in lessons_names:
-        lesson += it
+    for key, it in enumerate(lessons_names):
+        lesson = Lesson(lesson_title=it)
+        lesson.groups.append(group1)
+        if key % 2 == 0:
+            lesson.groups.append(group2)
         session.add(lesson)
 
     faker = Faker('ru_RU')
