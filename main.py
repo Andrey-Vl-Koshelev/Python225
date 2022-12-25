@@ -3803,29 +3803,41 @@
 #     cur.execute('SELECT ru FROM dict WHERE eng LIKE "c%"')
 #     print(cur.fetchall())
 
-import sqlite3 as sq
+# import sqlite3 as sq
+#
+# text = [
+#     ('Вишня', 2000, 2),
+#     ('Слива', 3000, 1),
+#     ('Яблоня', 1500, 3),
+# ]
+#
+# with sq.connect('db/garden.db') as gar:
+#     cur = gar.cursor()
+#     cur.execute("""
+#     CREATE TABLE IF NOT EXISTS garden(
+#     garden_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     name TEXT,
+#     price INTEGER,
+#     year INTEGER)
+#     """)
+#
+#     cur.executescript("""
+#     DELETE FROM garden WHERE garden_id > 4;
+#     UPDATE garden SET price = price + 200
+#     """)
+# cur.execute('INSERT INTO garden VALUES(1, "груша", 2500, 2)')
+# cur.executemany('INSERT INTO garden VALUES(NULL, ?, ?, ?)', text)
+# for i in text:
+#     cur.execute('INSERT INTO garden VALUES(NULL,?,?,?)', i)
+import os
 
-text = [
-    ('Вишня', 2000, 2),
-    ('Слива', 3000, 1),
-    ('Яблоня', 1500, 3),
-]
+from models.database import DATABASE_NAME
+import create_database as db_creator
 
-with sq.connect('db/garden.db') as gar:
-    cur = gar.cursor()
-    cur.execute("""
-    CREATE TABLE IF NOT EXISTS garden(
-    garden_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    price INTEGER,
-    year INTEGER)
-    """)
+if __name__ == '__main__':
+    db_is_created = os.path.exists(DATABASE_NAME)
+    if not db_is_created:
+        db_creator.create_database()
 
-    cur.executescript("""
-    DELETE FROM garden WHERE garden_id > 4;
-    UPDATE garden SET price = price + 200
-    """)
-    # cur.execute('INSERT INTO garden VALUES(1, "груша", 2500, 2)')
-    # cur.executemany('INSERT INTO garden VALUES(NULL, ?, ?, ?)', text)
-    # for i in text:
-    #     cur.execute('INSERT INTO garden VALUES(NULL,?,?,?)', i)
+
+
