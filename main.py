@@ -3841,7 +3841,7 @@
 
 import os
 
-from mytables.my_database import DATABASE_NAME
+from DZ_Python225.mytables import DATABASE_NAME
 import mytable_database as db_mytable
 
 if __name__ == '__main__':
