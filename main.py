@@ -3839,14 +3839,215 @@
 #     if not db_is_created:
 #         db_creator.create_database()
 
-import os
+# import os
+#
+# from DZ_Python225.mytables import DATABASE_NAME
+# import mytable_database as db_mytable
+#
+# if __name__ == '__main__':
+#     db_is_created = os.path.exists(DATABASE_NAME)
+#     if not db_is_created:
+#         db_mytable.mytable_database()
 
-from DZ_Python225.mytables import DATABASE_NAME
-import mytable_database as db_mytable
+# class Point3D:
+#     CH = 'Координата должна быть числом'
+#     RIGHT = 'Правый операнд должен быть типом Point3D'
+#
+#     def __init__(self, x=0, y=0, z=0):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#     def __str__(self):
+#         return f'{self.__x}, {self.__y}, {self.__z}'
+#
+#     @staticmethod
+#     def __check_value(v):
+#         return isinstance(v, int | float)
+#
+#     @property
+#     def x(self):
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, value):
+#         if self.__check_value(value):
+#             self.__x = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def y(self):
+#         return self.__y
+#
+#     @y.setter
+#     def y(self, value):
+#         if self.__check_value(value):
+#             self.__y = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def z(self):
+#         return self.__z
+#
+#     @z.setter
+#     def z(self, value):
+#         if self.__check_value(value):
+#             self.__z = value
+#         else:
+#             print(self.CH)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x + other.x, self.__y + other.y, self.__z + other.z)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x - other.x, self.__y - other.y, self.__z - other.z)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x * other.x, self.__y * other.y, self.__z * other.z)
+#
+#     @staticmethod
+#     def __check0(v):
+#         if v.x == 0 or v.y == 0 or v.z == 0:
+#             raise ZeroDivisionError('Ни одна из координат не должна быть нулем')
+#
+#     def __truediv__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         self.__check0(other)
+#         return Point3D(self.__x / other.x, self.__y / other.y, self.__z / other.z)
+#
+#     def __eq__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         return self.__x == other.x and self.__y == other.y and self.__z == other.z
+#
+#     def __getitem__(self, item):
+#         if not isinstance(item, str):
+#             raise ValueError('Ключ должен быть строкой')
+#         elif item == 'x':
+#             return self.__x
+#         elif item == 'y':
+#             return self.__y
+#         elif item == 'z':
+#             return self.__z
+#         else:
+#             print('Не верно задан ключ')
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, str):
+#             raise ValueError('Ключ должен быть строкой')
+#         if self.__check_value(value):
+#             if key == 'x':
+#                 self.__x = value
+#             elif key == 'y':
+#                 self.__y = value
+#             elif key == 'z':
+#                 self.__z = value
+#         else:
+#             print('Координаты должны быть числами')
+#
+#
+# pt1 = Point3D(12, 15, 18)
+# pt2 = Point3D(6, 3, 9)
+# print('Координаты 1-й точки: ', pt1)
+# print('Координаты 2-й точки: ', pt2)
+#
+# pt3 = pt1 + pt2
+# print(f'Сложение координат: ({pt3})')
+#
+# pt4 = pt1 - pt2
+# print(f'Разность координат: ({pt4})')
+#
+# pt5 = pt1 * pt2
+# print(f'Умножение координат: ({pt5})')
+#
+# pt6 = pt1 / pt2
+# print(f'Частное координат: ({pt6})')
+#
+# pt7 = pt1 == pt2
+# print(f'Равенство координат: ({pt7})')
+#
+# print('x=', pt1['x'], 'x1=', pt2['x'])
+# print('y=', pt1['y'], 'y1=', pt2['y'])
+# print('z=', pt1['z'], 'z1=', pt2['z'])
+#
+# pt1['x'] = 20
+# print('Запись значения в координату x:', pt1['x'])
 
-if __name__ == '__main__':
-    db_is_created = os.path.exists(DATABASE_NAME)
-    if not db_is_created:
-        db_mytable.mytable_database()
+# class Cat:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def info(self):
+#         return f'Я кот. Меня зовут {self.name}. Мой возраст {self.age}'
+#
+#     def make_sound(self):
+#         return f'{self.name} мяукает'
+#
+#
+# class Dog:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def info(self):
+#         return f'Я собака. Меня зовут {self.name}. Мой возраст {self.age}'
+#
+#     def make_sound(self):
+#         return f'{self.name} гавкает'
+#
+#
+# c = Cat('Пушок', 2.5)
+# d = Dog('Мухтар', 4)
+# n = [c, d]
+# for i in n:
+#     print(i.info())
+#     print(i.make_sound())
 
+# class Power:
+#     def __init__(self, func):
+#         self.func = func
+#
+#     def __call__(self, *args, **kwargs):
+#         res = self.func(*args)
+#         return res ** 2
+#
+#
+# @Power
+# def res(a, b):
+#     return a * b
+#
+#
+# print(res(2, 3))
+
+# class Power:
+#     def __init__(self, func):
+#         self.func = func
+#
+#     def __call__(self, func):
+#         def wrap(*args, **kwargs):
+#             res = func(*args, **kwargs)
+#             return res ** self.func
+#
+#         return wrap
+#
+#
+# @Power(3)
+# def add(a, b):
+#     return a * b
+#
+#
+# print(add(2, 2))
 
