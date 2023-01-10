@@ -33,3 +33,4 @@ class Parser:
     def run(self):
         self.get_html()
         self.parsing()
+        self.save()
