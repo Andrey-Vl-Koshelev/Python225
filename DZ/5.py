@@ -4,11 +4,12 @@ data = {"Россия": "Москва"}
 
 
 def decorator_in(func):
-    def wrap(*args, **kwargs):
+    def wrap(*args, filename):
         try:
-            func(*args, **kwargs)
+            data = json.load(open(filename))
+            func(*args, filename)
         except FileNotFoundError:
-            data1 = {}
+            data = {}
 
     return wrap
 
@@ -34,30 +35,27 @@ class CountryCapital:
     @decorator_too
     @decorator_in
     def add_country(cls, new_country, new_capital, filename):
-        data1 = json.load(open('list_capital.json'))
-        data1[new_country] = new_capital
+        data[new_country] = new_capital
         with open(filename, "w") as f:
-            json.dump(data1, f, indent=2, ensure_ascii=False)
+            json.dump(data, f, indent=2, ensure_ascii=False)
 
     @classmethod
     @decorator_too
     @decorator_in
     def delete_country(cls, del_country, filename):
-        data1 = json.load(open('list_capital.json'))
-        if del_country in data1:
-            del data1[del_country]
+        if del_country in data:
+            del data[del_country]
 
             with open(filename, "w") as f:
-                json.dump(data1, f, indent=2, ensure_ascii=False)
+                json.dump(data, f, indent=2, ensure_ascii=False)
         else:
             print("Такой страны в базе нет")
 
     @classmethod
     @decorator_in
     def search_data(cls, country, filename):
-        data1 = json.load(open('list_capital.json'))
-        if country in data1:
-            print(f"Страна {country} столица {data1[country]} есть в словаре!")
+        if country in data:
+            print(f"Страна {country} столица {data[country]} есть в словаре!")
         else:
             print(f"Страна {country} отсутствует в словаре")
 
@@ -65,12 +63,11 @@ class CountryCapital:
     @decorator_too
     @decorator_in
     def change_capital(cls, country, new_value, filename):
-        data1 = json.load(open('list_capital.json'))
-        if country in data1:
-            data1[country] = new_value
+        if country in data:
+            data[country] = new_value
 
             with open(filename, "w") as f:
-                json.dump(data1, f, indent=2, ensure_ascii=False)
+                json.dump(data, f, indent=2, ensure_ascii=False)
         else:
             print("Такой страны в базе нет")
 
@@ -94,17 +91,17 @@ while index != 6:
         if index == 1:
             country_name = input("Введите название страны (с заглавной буквы): ")
             capital_name = input("Введите название столицы страны (с заглавной буквы): ")
-            CountryCapital.add_country(country_name, capital_name, 'list_capital.json')
+            CountryCapital.add_country(country_name, capital_name, filename='list_capital.json')
         if index == 2:
             country_name = input("Введите страну для удаления (с заглавной буквы): ")
-            CountryCapital.delete_country(country_name, 'list_capital.json')
+            CountryCapital.delete_country(country_name, filename='list_capital.json')
         if index == 3:
             country_name = input("Введите название страны (с заглавной буквы): ")
-            CountryCapital.search_data(country_name, 'list_capital.json')
+            CountryCapital.search_data(country_name, filename='list_capital.json')
         if index == 4:
             country_name = input("Введите название страны столицу которой хотите изменить (с заглавной буквы): ")
             new_capital = input("Введите новое название столицы: ")
-            CountryCapital.change_capital(country_name, new_capital, 'list_capital.json')
+            CountryCapital.change_capital(country_name, new_capital, filename='list_capital.json')
         if index == 5:
             CountryCapital.load_from_file('list_capital.json')
     except IndexError:
