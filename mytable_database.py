@@ -1,9 +1,9 @@
 from faker import Faker
 
-from DZ_Python225.mytables import create_db, Session
-from DZ_Python225.mytables import Name
-from DZ_Python225.mytables import Number
-from DZ_Python225.mytables import Lesson
+from mytables.my_database import create_db, Session
+from mytables.name import Name
+from mytables.number import Number
+from mytables.lesson import Lesson
 
 
 def mytable_database(load_fake_data=True):

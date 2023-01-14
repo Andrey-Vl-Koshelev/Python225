@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
-from database import Base
+from models.database import Base
 
 association_table = Table('association', Base.metadata, Column('lesson_id', Integer, ForeignKey('lessons.id')),
                           Column('group_id', Integer, ForeignKey('groups.id')))
