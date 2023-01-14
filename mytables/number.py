@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from DZ_Python225.mytables.my_database import Base
+from mytables.my_database import Base
 
 
 class Number(Base):

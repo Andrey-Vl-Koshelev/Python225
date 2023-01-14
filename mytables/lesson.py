@@ -1,7 +1,7 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
-from DZ_Python225.mytables.my_database import Base
+from mytables.my_database import Base
 
 association_table = Table('association', Base.metadata, Column('lesson_id', Integer, ForeignKey('lessons.id')),
                           Column('group_id', Integer, ForeignKey('numbers.id')))

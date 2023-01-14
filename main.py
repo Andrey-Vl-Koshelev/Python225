@@ -4177,150 +4177,150 @@
 #
 # print(add(2, 2))
 
-import os
-from sqlalchemy import and_, or_, not_, desc, func, distinct, text
-
-from mytables.my_database import DATABASE_NAME, Session
-import mytable_database as db_mytable
-from mytables.lesson import Lesson, association_table
-from mytables.name import Name
-from mytables.number import Number
-
-if __name__ == '__main__':
-    db_is_created = os.path.exists(DATABASE_NAME)
-    if not db_is_created:
-        db_mytable.mytable_database()
-
-    session = Session()
-    print(session.query(Lesson).all())
-    print('*' * 60)
-    for it in session.query(Lesson):
-        print(it.lesson_title)
-    print('*' * 60)
-
-    print(session.query(Lesson).count())
-    print('*' * 60)
-
-    print(session.query(Lesson).first())
-    print('*' * 60)
-
-    print(session.query(Lesson).get(2))
-    print('*' * 60)
-
-    for it in session.query(Lesson).filter(Lesson.id >= 4, Lesson.lesson_title.like('В%')):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(Lesson).filter(or_(Lesson.id >= 4, Lesson.lesson_title.like('В%'))):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(Lesson).filter(and_(Lesson.id >= 4, Lesson.lesson_title.like('В%'))):
-        print(it)
-    print('*' * 60)
-
-    for it, num in session.query(Lesson.lesson_title, Number.group_name).filter(
-            and_(association_table.c.lesson_id == Lesson.id, association_table.c.group_id == Number.id,
-                 Number.group_name == 'WELL-222')):
-        print(it, num)
-    print('*' * 60)
-
-    for it in session.query(Lesson).filter(not_(Lesson.id >= 2), not_(Lesson.lesson_title.like('В%'))):
-        print(it)
-    print('*' * 60)
-
-    print(session.query(Lesson).filter(Lesson.lesson_title is None).all())
-    print('*' * 60)
-
-    print(session.query(Lesson).filter(Lesson.lesson_title is not None).all())
-    print('*' * 60)
-
-    print(session.query(Lesson).filter(Lesson.lesson_title.in_(['История', 'Тактика'])).all())
-    print('*' * 60)
-
-    print(session.query(Lesson).filter(Lesson.lesson_title.notin_(['История', 'Тактика'])).all())
-    print('*' * 60)
-
-    print(session.query(Name).filter(Name.age.between(17, 19)).all())
-    print('*' * 60)
-
-    print(session.query(Name).filter(not_(Name.age.between(17, 25))).all())
-    print('*' * 60)
-
-    print(session.query(Name).filter(Name.age.like('1%')).all())
-    print('*' * 60)
-
-    for it in session.query(Name).filter(Name.age.like('1%')).limit(5):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(Name).filter(Name.age.like('1%')).limit(5).offset(4):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(Name).order_by(Name.surname):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(Name).order_by(desc(Name.surname)):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(Name).join(Number).filter(Number.group_name == 'WELL-221'):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(func.count(Name.surname), Number.group_name).join(Number).group_by(Number.group_name):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(func.count(Name.surname), Number.group_name).join(Number).group_by(
-            Number.group_name).having(func.count(Name.surname) < 20):
-        print(it)
-    print('*' * 60)
-
-    for it in session.query(distinct(Name.age)):
-        print(it)
-    print("*" * 60)
-
-    i = session.query(Lesson).get(8)
-    i.lesson_title = 'История'
-    session.add(i)
-    session.commit()
-
-    for it in session.query(Lesson):
-        print(it.lesson_title)
-    print("*" * 60)
-
-    session.query(Lesson).filter(Lesson.lesson_title.like('%р%')).update({'lesson_title': 'Р'},
-                                                                         synchronize_session='fetch')
-    session.commit()
-
-    for it in session.query(Lesson):
-        print(it.lesson_title)
-    print("*" * 60)
-
-    session.add(Lesson(lesson_title='Стрельба'))
-    session.commit()
-
-    for it in session.query(Lesson):
-        print(it.lesson_title)
-    print("*" * 60)
-
-    i = session.query(Lesson).filter(Lesson.lesson_title == "Стрельба").first()
-    print(i)
-    session.delete(i)
-    session.commit()
-
-    for it in session.query(Lesson):
-        print(it.lesson_title)
-    print("*" * 60)
-
-    for it in session.query(Name).filter(text("surname like 'В%'")).order_by(text("name, id desc")):
-        print(it)
-    print("*" * 60)
-
-from jinja2 import Template
+# import os
+# from sqlalchemy import and_, or_, not_, desc, func, distinct, text
+#
+# from mytables.my_database import DATABASE_NAME, Session
+# import mytable_database as db_mytable
+# from mytables.lesson import Lesson, association_table
+# from mytables.name import Name
+# from mytables.number import Number
+#
+# if __name__ == '__main__':
+#     db_is_created = os.path.exists(DATABASE_NAME)
+#     if not db_is_created:
+#         db_mytable.mytable_database()
+#
+#     session = Session()
+#     print(session.query(Lesson).all())
+#     print('*' * 60)
+#     for it in session.query(Lesson):
+#         print(it.lesson_title)
+#     print('*' * 60)
+#
+#     print(session.query(Lesson).count())
+#     print('*' * 60)
+#
+#     print(session.query(Lesson).first())
+#     print('*' * 60)
+#
+#     print(session.query(Lesson).get(2))
+#     print('*' * 60)
+#
+#     for it in session.query(Lesson).filter(Lesson.id >= 4, Lesson.lesson_title.like('В%')):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(Lesson).filter(or_(Lesson.id >= 4, Lesson.lesson_title.like('В%'))):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(Lesson).filter(and_(Lesson.id >= 4, Lesson.lesson_title.like('В%'))):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it, num in session.query(Lesson.lesson_title, Number.group_name).filter(
+#             and_(association_table.c.lesson_id == Lesson.id, association_table.c.group_id == Number.id,
+#                  Number.group_name == 'WELL-222')):
+#         print(it, num)
+#     print('*' * 60)
+#
+#     for it in session.query(Lesson).filter(not_(Lesson.id >= 2), not_(Lesson.lesson_title.like('В%'))):
+#         print(it)
+#     print('*' * 60)
+#
+#     print(session.query(Lesson).filter(Lesson.lesson_title is None).all())
+#     print('*' * 60)
+#
+#     print(session.query(Lesson).filter(Lesson.lesson_title is not None).all())
+#     print('*' * 60)
+#
+#     print(session.query(Lesson).filter(Lesson.lesson_title.in_(['История', 'Тактика'])).all())
+#     print('*' * 60)
+#
+#     print(session.query(Lesson).filter(Lesson.lesson_title.notin_(['История', 'Тактика'])).all())
+#     print('*' * 60)
+#
+#     print(session.query(Name).filter(Name.age.between(17, 19)).all())
+#     print('*' * 60)
+#
+#     print(session.query(Name).filter(not_(Name.age.between(17, 25))).all())
+#     print('*' * 60)
+#
+#     print(session.query(Name).filter(Name.age.like('1%')).all())
+#     print('*' * 60)
+#
+#     for it in session.query(Name).filter(Name.age.like('1%')).limit(5):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(Name).filter(Name.age.like('1%')).limit(5).offset(4):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(Name).order_by(Name.surname):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(Name).order_by(desc(Name.surname)):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(Name).join(Number).filter(Number.group_name == 'WELL-221'):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(func.count(Name.surname), Number.group_name).join(Number).group_by(Number.group_name):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(func.count(Name.surname), Number.group_name).join(Number).group_by(
+#             Number.group_name).having(func.count(Name.surname) < 20):
+#         print(it)
+#     print('*' * 60)
+#
+#     for it in session.query(distinct(Name.age)):
+#         print(it)
+#     print("*" * 60)
+#
+#     i = session.query(Lesson).get(8)
+#     i.lesson_title = 'История'
+#     session.add(i)
+#     session.commit()
+#
+#     for it in session.query(Lesson):
+#         print(it.lesson_title)
+#     print("*" * 60)
+#
+#     session.query(Lesson).filter(Lesson.lesson_title.like('%р%')).update({'lesson_title': 'Р'},
+#                                                                          synchronize_session='fetch')
+#     session.commit()
+#
+#     for it in session.query(Lesson):
+#         print(it.lesson_title)
+#     print("*" * 60)
+#
+#     session.add(Lesson(lesson_title='Стрельба'))
+#     session.commit()
+#
+#     for it in session.query(Lesson):
+#         print(it.lesson_title)
+#     print("*" * 60)
+#
+#     i = session.query(Lesson).filter(Lesson.lesson_title == "Стрельба").first()
+#     print(i)
+#     session.delete(i)
+#     session.commit()
+#
+#     for it in session.query(Lesson):
+#         print(it.lesson_title)
+#     print("*" * 60)
+#
+#     for it in session.query(Name).filter(text("surname like 'В%'")).order_by(text("name, id desc")):
+#         print(it)
+#     print("*" * 60)
+#
+# from jinja2 import Template
 
 # name = 'Игорь'
 # age = 28
