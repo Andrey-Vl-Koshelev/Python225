@@ -3844,7 +3844,7 @@
 #         db_creator.create_database()
 #
 #     session = Session()
-#     print(session.query(Lesson).all())
+#     print(session.query(Lesson).all())# результат запроса по всем элементам в списке
 #     print('*' * 60)
 #     for it in session.query(Lesson):
 #         print(it.lesson_title)
@@ -3852,7 +3852,7 @@
 #
 #     for it in session.query(Student).filter(text('surname like "М%"')).order_by(text('name, id desc')):
 #         print(it)
-
+#
 # i = session.query(Lesson).get(7)
 # i.lesson_title = 'Информатика'
 # session.add(i)
@@ -3867,20 +3867,20 @@
 # for it in session.query(Lesson):
 #     print(it.lesson_title)
 # print('*' * 60)
-
+#
 # session.add(Lesson(lesson_title="Физика"))
 # session.commit()
 # for it in session.query(Lesson):
 #     print(it.lesson_title)
 # print('*' * 60)
-
+#
 # i = session.query(Lesson).filter(Lesson.lesson_title == "Физика").first()
 # session.delete(i)
 # session.commit()
 # for it in session.query(Lesson):
 #     print(it.lesson_title)
 # print('*' * 60)
-
+#
 # print(session.query(Lesson).count())
 # print('*' * 60)
 # print(session.query(Lesson).first())
@@ -4529,9 +4529,9 @@
 # msg = tm.render(users=persons)
 # print(msg)
 
-from jinja2 import Environment, FileSystemLoader
-
-
+# from jinja2 import Environment, FileSystemLoader
+#
+#
 # persons = [
 #     {'name': 'Алексей', 'year': 18, 'weight': 78.5},
 #     {'name': 'Николай', 'year': 20, 'weight': 58.5},
@@ -4559,13 +4559,15 @@ from jinja2 import Environment, FileSystemLoader
 # msg = tm.render(users=persons, title='About Jinja')
 #
 # print(msg)
+#
+# from jinja2 import Environment, FileSystemLoader
+#
+# file_loader = FileSystemLoader('my_templates')
+# on = Environment(loader=file_loader)
+#
+# tm = on.get_template('main.html')
+# msg = tm.render()
+#
+# print(msg)
 
-from jinja2 import Environment, FileSystemLoader
 
-file_loader = FileSystemLoader('my_templates')
-on = Environment(loader=file_loader)
-
-tm = on.get_template('main.html')
-msg = tm.render()
-
-print(msg)
