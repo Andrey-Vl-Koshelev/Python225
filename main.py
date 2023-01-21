@@ -4570,4 +4570,64 @@
 #
 # print(msg)
 
+# def decrypt(encrypted_text, n):
+#     if encrypted_text in ("", None):
+#         return encrypted_text
+#
+#     ndx = len(encrypted_text) // 2
+#
+#     for i in range(n):
+#         a = encrypted_text[:ndx]
+#         b = encrypted_text[ndx:]
+#         encrypted_text = "".join(b[i:i + 1] + a[i:i + 1] for i in range(ndx + 1))
+#     return encrypted_text
+#
+#
+# def encrypt(text, n):
+#     for i in range(n):
+#         text = text[1::2] + text[::2]
+#     return text
+#
+#
+# print(encrypt("This is a test!", 0))
+# print(encrypt("This is a test!", 3))
+# print(decrypt(" Tah itse sits!", 3))
+
+# from jinja2 import Environment, FileSystemLoader
+# from jinja2 import Template
+# menu = [
+#     {'href': '/index', 'link': 'Главная'},
+#     {'href': '/news', 'link': 'Новости'},
+#     {'href': '/about', 'link': 'О компании'},
+#     {'href': '/shop', 'link': 'Магазин'},
+#     {'href': '/contacts', 'link': 'Контакты'},
+# ]
+#
+# text = """
+# <ul>
+# {% for i in menu %}
+#     {% if i['href'] == '/index' -%}
+#         <li><a href='{{ i['href'] }}' class='active'>{{ i['link']}}</a></li>
+#     {% else %}
+#         <li><a href='{{ i['href'] }}'>{{ i['link']}}</a></li>
+#     {% endif %}
+# {% endfor %}
+# </ul>
+# """
+#
+# tm = Template(text)
+# msg = tm.render(menu=menu)
+# print(msg)
+
+# from jinja2 import Environment, FileSystemLoader
+#
+# subs = ['Культура','Наука','Политика','Спорт']
+#
+# file_loader = FileSystemLoader('templates')
+# on = Environment(loader=file_loader)
+#
+# tm = on.get_template('about.html')
+# msg = tm.render(list_table=subs)
+#
+# print(msg)
 
