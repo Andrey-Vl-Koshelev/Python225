@@ -22,7 +22,7 @@ def about():
     return render_template('about.html', title='Меню приложения', menu=menu)
 
 
-@app.route('/contacts')
+@app.route('/contact')
 def contacts():
     print(url_for('contacts'))
     return render_template('contacts.html', title='Контакты', menu=menu)
