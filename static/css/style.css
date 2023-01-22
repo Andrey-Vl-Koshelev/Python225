@@ -17,3 +17,15 @@ body{
     padding: 20px;
     box-sizing: border-box;
 }
+.flash{
+    padding: 10px;
+    width: 100px;
+}
+.flash.success{
+    border: 1px solid #21DB56;
+    background: azure;
+}
+.flash.error{
+    border: 1px solid #FF4343;
+    background: bisque;
+}
