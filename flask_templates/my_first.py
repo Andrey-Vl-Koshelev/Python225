@@ -11,6 +11,12 @@ app.config.from_object(__name__)
 
 app.config.update(dict(DATABASE=os.path.join(app.root_path, 'fiks.db')))
 
+menu = [
+    {"name": "Начальная страница", "url": "index"},
+    {"name": "Меню приложения", "url": "about"},
+    {"name": "Контакты", "url": "contact"},
+]
+
 
 def connect_db():
     van = sqlite3.connect(app.config['DATABASE'])
@@ -21,16 +27,10 @@ def connect_db():
 def create_db():
     db = connect_db()
     with app.open_resource('sql_db.sql', mode='r') as f:
-        db.cursor().executescript(f.read())
+        cur = db.cursor()
+        cur.executescript(f.read())
     db.commit()
     db.close()
-
-
-menu = [
-    {"name": "Начальная страница", "url": "index"},
-    {"name": "Меню приложения", "url": "about"},
-    {"name": "Контакты", "url": "contact"},
-]
 
 
 @app.route('/index')
